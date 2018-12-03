@@ -1,0 +1,37 @@
+.grid-container {
+    background-color: white;
+    grid-template-columns: 1fr 4fr;
+    display: grid;
+    align-content: space-around;
+    justify-content: stretch;
+    row-gap: 1%;
+    column-gap: 1%;
+}
+.grid-item {
+    background-color: lightgray;
+    align-self: stretch;
+}
+
+.flex-container {
+    display: flex;
+    column-gap: 30px;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    height: 300px;
+    width: 300px;
+    background-color: beige;
+    margin: 5px;
+    display: flex;
+}
+.center-flex-item {
+    margin: auto;
+}
+
+
+
+.flex-item:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
