@@ -13,7 +13,10 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("HIHIHI")
+  }
+
+  onTaskClick(){
+     
   }
 
 }
