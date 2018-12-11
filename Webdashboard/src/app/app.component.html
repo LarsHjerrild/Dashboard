@@ -3,38 +3,63 @@
   <div class="grid-item"></div>
   <div class="grid-item">
     <!-- <ng-container *ngIf="tasks"> -->
-      <button (click)="openTaskForm()">This is a button</button>
+    <button type="button" (click)="openTaskForm()">This is a button</button>
 
-      
 
-      <div class="flex-container">
 
-          <div id="form-container">
-              <h1>Hero Form</h1>
-              <form>
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" required>
-                </div>
-           
-                <div class="form-group">
-                  <label for="alterEgo">Alter Ego</label>
-                  <input type="text" class="form-control" id="alterEgo">
-                </div>
-           
-                <button type="submit">Submit</button>
-                <button type="button" (click)="closeTaskForm()">Cancel</button>
-                
-              </form>
-    
-    
-    
+    <div class="flex-container">
+
+      <div id="form-container">
+        <form id="form-inside">
+
+
+          <div class="modal-part">
+            <h3>Task creation</h3>
           </div>
-        <div class="flex-item"></div>
-        <div class="flex-item"></div>
-        <div class="flex-item"></div>
-        <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+          <div class="modal-part model-inputs">
+            <div class="form-group">
+              <input type="text" class="form-control" id="name" placeholder="Task Name" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="alterEgo" placeholder="Something">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="alterEgo" placeholder="Something">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="alterEgo" placeholder="Something">
+                </div>
+          </div>
+
+          <div class="modal-part">
+            <button type="submit">Submit</button>
+            <button type="button" (click)="closeTaskForm()">Cancel</button>
+          </div>
+          <!-- <h1 class="inside-form" style="border-bottom:1px solid black;">Task creation</h1>
+
+            <div class="inputs inside-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="alterEgo">Alter Ego</label>
+                <input type="text" class="form-control" id="alterEgo">
+              </div>
+            </div>
+            <!-- <p class="inside-form">Cool</p> -->
+          <!-- <div class="btns inside-form">
+              <button type="submit">Submit</button>
+              <button type="button" (click)="closeTaskForm()">Cancel</button>
+            </div> -->
+        </form>
       </div>
+      <div class="flex-item"></div>
+      <div class="flex-item"></div>
+      <div class="flex-item"></div>
+      <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    </div>
     <!-- </ng-container> -->
   </div>
 </div>

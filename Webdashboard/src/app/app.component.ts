@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   openTaskForm() {
-    document.getElementById('form-container').style.display = "block";
+    document.getElementById('form-container').style.display = "flex";
   }
   closeTaskForm() {
     document.getElementById('form-container').style.display = "none";
