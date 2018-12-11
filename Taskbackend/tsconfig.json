@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "types": ["node"],
+        "noImplicitAny": true,
+        "removeComments": true,
+        "strictNullChecks": true,
+        "preserveConstEnums": true,
+        "outDir": "build",
+        "traceResolution": false,
+        "moduleResolution": "node",
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+      "node_modules"  
+    ]
+}
