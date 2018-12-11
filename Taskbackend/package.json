@@ -1,0 +1,48 @@
+{
+  "name": "tsnode",
+  "version": "1.0.3",
+  "description": "A node app",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/Test/**/*",
+    "build": "bash ./devs/install/build.sh",
+    "prestart": "npm run-script build",
+    "start": "node ./build/bin/startup.js",
+    "clean": "rm -rf ./build",
+    "postclean": "echo \"Directory cleaned \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSUnderstanding/Typescripttemplate.git"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "javascript"
+  ],
+  "author": "Lars Hjerrild",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSUnderstanding/Typescripttemplate/issues"
+  },
+  "homepage": "https://github.com/CSUnderstanding/Typescripttemplate#readme",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.3.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.3.14",
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/es6-promise": "^3.3.0",
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.3.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.0",
+    "typedoc": "^0.11.1",
+    "typings": "^2.1.1"
+  }
+}
