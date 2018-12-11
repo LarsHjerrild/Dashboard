@@ -1,0 +1,23 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+
+ 
+    Name:
+    <input type="text" formControlName="name" required>
+    Desc:
+    <input type="text" formControlName="description" >
+    Due date:
+    <input type="date" formControlName="due_date" >
+    Category:
+    <input type="number" formControlName="category" >
+    Priority:
+    <input type="number" formControlName="priority" >
+    Goal:
+    <input type="text" formControlName="goal_origin" >
+    time_estimate:
+    <input type="number" formControlName="time_estimate" >
+
+
+  <input [disabled]="!taskForm.valid" type="submit" value="Submit">
+</form>
+

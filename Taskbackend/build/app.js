@@ -3,6 +3,7 @@ exports.__esModule = true;
 require("./Database/db");
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
 var routeapi = require('./app/routes/index');
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -11,6 +12,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+app.use(bodyParser.json());
 app.use('/api', routeapi);
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

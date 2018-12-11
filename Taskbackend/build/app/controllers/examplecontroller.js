@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-var examplemodel_1 = require("../../Models/examplemodel");
 var mongoose_1 = require("mongoose");
 require('../../Models/examplemodel');
 var logic = require('../../BLL/examplelogic');
@@ -17,15 +16,25 @@ module.exports.getentry = function (req, res) {
     });
 };
 module.exports.postModelitem = function (req, res) {
-    var tmp = examplemodel_1.TASKS[0];
-    var newEntry = new taskEntry(examplemodel_1.TASKS[0]);
+    console.log("Request gotten");
+    var newEntry = new taskEntry({
+        name: req.body["name"],
+        description: req.body["description"],
+        creation_date: new Date(),
+        due_date: new Date(req.body["due_date"]),
+        category: req.body["category"],
+        priority: req.body["priority"],
+        goal_origin: req.body["goal_origin"],
+        time_estimate: req.body["time_estimate"]
+    });
     newEntry.save().then(function (data) {
         res.status(201);
-        res.json(data.id);
+        res.json(newEntry._id);
     });
 };
 module.exports.getModelitem = function (req, res) {
-    var tmp = examplemodel_1.TASKS;
-    res.status(200);
-    res.json(tmp);
+    taskEntry.find().then(function (data) {
+        res.status(200);
+        res.json(data);
+    });
 };

@@ -19,10 +19,9 @@ export enum CATEGORIES {
 }
 
 export class Task {
-    id: number;
     name: string;
     description: string;
-    creation_date: Date;
+    creation_date?: Date;
     due_date: Date;
     category: CATEGORIES;
     priority: PRIORITIES;
@@ -30,9 +29,8 @@ export class Task {
     time_estimate: number;
 }
 
-export const TASKS = [
+export const TASKS :Task[] = [
     {
-        id: 1,
         name: "Set up Build",
         description: "work",
         creation_date: new Date(),
@@ -43,7 +41,6 @@ export const TASKS = [
         time_estimate: 10
     },
     {
-        id: 1,
         name: "Set up backend",
         description: "work",
         creation_date: new Date(),
@@ -54,7 +51,6 @@ export const TASKS = [
         time_estimate: 12
     },
     {
-        id: 1,
         name: "Play keyboard tunes",
         description: "work",
         creation_date: new Date(),

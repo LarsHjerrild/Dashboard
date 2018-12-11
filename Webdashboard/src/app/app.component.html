@@ -8,11 +8,10 @@
 
 
     <div class="flex-container">
-
       <div id="form-container">
         <form id="form-inside">
-
-
+          
+          
           <div class="modal-part">
             <h3>Task creation</h3>
           </div>
@@ -24,44 +23,45 @@
               <input type="text" class="form-control" id="alterEgo" placeholder="Something">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="alterEgo" placeholder="Something">
-              </div>
-              <div class="form-group">
-                  <input type="text" class="form-control" id="alterEgo" placeholder="Something">
-                </div>
+              <input type="text" class="form-control" id="alterEgo" placeholder="Something">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="alterEgo" placeholder="Something">
+            </div>
           </div>
-
+          
           <div class="modal-part">
             <button type="submit">Submit</button>
             <button type="button" (click)="closeTaskForm()">Cancel</button>
           </div>
           <!-- <h1 class="inside-form" style="border-bottom:1px solid black;">Task creation</h1>
-
+            
             <div class="inputs inside-form">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" required>
               </div>
-
+              
               <div class="form-group">
                 <label for="alterEgo">Alter Ego</label>
                 <input type="text" class="form-control" id="alterEgo">
               </div>
             </div>
             <!-- <p class="inside-form">Cool</p> -->
-          <!-- <div class="btns inside-form">
+            <!-- <div class="btns inside-form">
               <button type="submit">Submit</button>
               <button type="button" (click)="closeTaskForm()">Cancel</button>
             </div> -->
-        </form>
+          </form>
+        </div>
+        <app-taskform></app-taskform>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <app-task *ngFor="let task of tasks" [task]="task"></app-task>
       </div>
-      <div class="flex-item"></div>
-      <div class="flex-item"></div>
-      <div class="flex-item"></div>
-      <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+      <!-- </ng-container> -->
     </div>
-    <!-- </ng-container> -->
   </div>
-</div>
-
-<router-outlet></router-outlet>
+  
+  <router-outlet></router-outlet>

@@ -18,4 +18,10 @@ export class TaskService {
     return this.http.get<Task[]>(`http://localhost:3000/api/model`)
   }
 
+  addTask(task :Task): Observable<Task> {
+    console.log("Requested")
+    return this.http.post<Task>('http://localhost:3000/api/model', task)
+  }
+
+
 }

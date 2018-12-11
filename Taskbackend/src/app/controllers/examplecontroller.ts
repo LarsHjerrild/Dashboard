@@ -1,3 +1,4 @@
+import { Response, Request, NextFunction } from "express";
 import { Task, TASKS, PRIORITIES } from "../../Models/examplemodel";
 import { model } from "mongoose";
 import { ITaskEntryDocument } from "../../Models/task-entry.model";
@@ -21,15 +22,24 @@ module.exports.getentry = function (req: any, res: any) {
     })
 }
 
-module.exports.postModelitem = function (req: any, res: any) {
+module.exports.postModelitem = function (
+    req: Request,
+    res: Response) {
 
-    let tmp: Task = TASKS[0];
+    const newEntry = new taskEntry({
+        name: req.body["name"],
+        description: req.body["description"],
+        creation_date: new Date(),
+        due_date: new Date(req.body["due_date"]),
+        category: req.body["category"],
+        priority: req.body["priority"],
+        goal_origin: req.body["goal_origin"],
+        time_estimate: req.body["time_estimate"]
+    });
 
-    const newEntry = new taskEntry(TASKS[0]) 
-
-    newEntry.save().then( data => {
+    newEntry.save().then(data => {
         res.status(201);
-        res.json(data.id);
+        res.json(newEntry._id);
 
     });
 
@@ -38,10 +48,14 @@ module.exports.postModelitem = function (req: any, res: any) {
 module.exports.getModelitem = function (req: any, res: any) {
 
     // let tmp :ExamleModelClass = {item1: 6, item2: 'Awesome'}
-    let tmp: Task[] = TASKS
+    //let tmp: Task[] = TASKS
 
-    res.status(200);
-    res.json(tmp);
+    taskEntry.find().then((data) => {
+        res.status(200);
+        res.json(data);
+    })
+
+
     // var tmp: ExamleModelClass {
     //     item1 = 6,
     //     item2 = 'Cool'

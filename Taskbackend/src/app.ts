@@ -1,6 +1,9 @@
 import "./Database/db";
 var express = require('express');
 var app = express();
+import * as bodyParser from "body-parser";
+
+
 
 var routeapi = require('./app/routes/index')
 
@@ -23,7 +26,7 @@ app.use(function (req:any, res:any, next:any) {
     // Pass to next layer of middleware
     next();
 });
-
+app.use(bodyParser.json());
 
 app.use('/api', routeapi);
 
