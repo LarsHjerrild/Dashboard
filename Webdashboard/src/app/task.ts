@@ -19,6 +19,7 @@ export enum CATEGORIES {
 }
 
 export class Task {
+    _id?: string
     name: string;
     description: string;
     creation_date?: Date;

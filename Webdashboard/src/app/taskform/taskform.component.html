@@ -1,23 +1,33 @@
-<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+<form id="form-inside" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
 
-
- 
-    Name:
-    <input type="text" formControlName="name" required>
-    Desc:
-    <input type="text" formControlName="description" >
-    Due date:
-    <input type="date" formControlName="due_date" >
-    Category:
-    <input type="number" formControlName="category" >
-    Priority:
-    <input type="number" formControlName="priority" >
-    Goal:
-    <input type="text" formControlName="goal_origin" >
-    time_estimate:
-    <input type="number" formControlName="time_estimate" >
-
-
-  <input [disabled]="!taskForm.valid" type="submit" value="Submit">
+  <div class="modal-part">
+    <h3>Task creation</h3>
+  </div>
+  <div class="modal-part model-inputs">
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="name" placeholder="Task Name" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="description" placeholder="Description">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="date" formControlName="due_date" >
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="number" formControlName="category" placeholder="Category">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="number" formControlName="priority" placeholder="Priority">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="number" formControlName="time_estimate" placeholder="Time estimahe (hours)">
+    </div>
+  </div>
+  <div class="modal-part">
+    <input [disabled]="!taskForm.valid" type="submit" value="Submit">
+    <button type="button" (click)="closeForm()">Cancel</button>
+  </div>
 </form>
-

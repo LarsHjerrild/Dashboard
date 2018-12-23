@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Task} from '../task'
 
 @Component({
@@ -7,7 +7,7 @@ import {Task} from '../task'
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-
+  @Output() update = new EventEmitter();
   @Input() task: Task;
 
   constructor() { }
@@ -16,7 +16,7 @@ export class TaskComponent implements OnInit {
   }
 
   onTaskClick(){
-     
+    this.update.emit(this.task)
   }
 
 }

@@ -20,14 +20,7 @@ export default new Schema({
       'FOOD',
       'FUN']
   },
-  priority: {
-    enum: [
-      'LOW',
-      'MEDIUM',
-      'HIGH',
-      'CRITICAL'
-    ]
-  },
+  priority: String,
   due_date: Date,
   goal_origin: String,
   time_estimate: Number

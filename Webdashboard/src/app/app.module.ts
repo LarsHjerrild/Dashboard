@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { TaskformComponent } from './taskform/taskform.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { TaskeditformComponent } from './taskeditform/taskeditform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    TaskformComponent
+    TaskformComponent,
+    TaskeditformComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,10 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents:[
+    TaskeditformComponent,
+    TaskformComponent
+],
   providers: [],
   bootstrap: [AppComponent]
 })

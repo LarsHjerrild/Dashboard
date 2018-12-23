@@ -1,7 +1,8 @@
 .flex-item {
-    height: 300px;
-    width: 300px;
-    background-color: beige;
+    height: 200px;
+    width: 200px;
+    background-color: rgba(233, 233, 198, 0.97);
+    border-radius: 15px;
     margin: 5px;
     display: flex;
 }
@@ -10,5 +11,6 @@
 }
 
 .flex-item:hover {
+    background-color: rgba(233, 233, 198, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

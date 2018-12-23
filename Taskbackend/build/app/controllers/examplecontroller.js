@@ -16,7 +16,6 @@ module.exports.getentry = function (req, res) {
     });
 };
 module.exports.postModelitem = function (req, res) {
-    console.log("Request gotten");
     var newEntry = new taskEntry({
         name: req.body["name"],
         description: req.body["description"],
@@ -36,5 +35,27 @@ module.exports.getModelitem = function (req, res) {
     taskEntry.find().then(function (data) {
         res.status(200);
         res.json(data);
+    });
+};
+module.exports.updateModelitem = function (req, res) {
+    console.log("trying to update item");
+    console.log(req.body['priority']);
+    var id = req.body["_id"];
+    console.log(id);
+    console.log(req.body["name"]);
+    taskEntry.updateOne({ _id: id }, { "name": req.body["name"] }).exec(function (err, raw) {
+        if (err) {
+            console.log(err);
+        }
+        console.log("raw");
+        console.log("Working");
+    });
+};
+module.exports.deleteModelitem = function (req, res) {
+    console.log("trying to delete item");
+    var id = req.params.id;
+    console.log(id);
+    taskEntry.deleteOne({ _id: id }).exec(function (data) {
+        res.status(202);
     });
 };

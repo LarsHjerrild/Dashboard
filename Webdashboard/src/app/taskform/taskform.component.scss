@@ -1,0 +1,38 @@
+#form-inside {
+    background: white;
+    margin: auto;
+    margin-top: 1%;
+    display: grid;
+    height: 650px;
+    width: 800px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 2fr;
+    grid-row-gap: 5px;
+    box-shadow: 4px 4px 2px #aaaaaa;
+}
+
+.modal-part {
+    
+    margin-left: 5%;
+    margin-right: 5%;
+     
+    border-bottom:1px solid lightgray;
+}
+
+.model-inputs {
+    display: grid;
+    justify-content: stretch;
+    align-content: space-evenly;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+}
+.form-group input {
+    flex: 1;
+}
+.form-group label {
+    margin-right: 5%;
+}

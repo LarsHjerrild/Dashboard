@@ -45,6 +45,7 @@ module.exports.postModelitem = function (
 
 }
 
+
 module.exports.getModelitem = function (req: any, res: any) {
 
     // let tmp :ExamleModelClass = {item1: 6, item2: 'Awesome'}
@@ -68,4 +69,52 @@ module.exports.getModelitem = function (req: any, res: any) {
     //     res.status(200);
     //     res.json(data);
     // })
+}
+
+
+module.exports.updateModelitem = function (
+    req: Request,
+    res: Response
+) {
+    console.log("trying to update item")
+
+    console.log(req.body['priority'])
+
+    const id = req.body["_id"]
+    console.log(id)
+    // const newEntry = new taskEntry({
+    //     name: req.body["name"],
+    //     description: req.body["description"],
+    //     creation_date: new Date(),
+    //     due_date: new Date(req.body["due_date"]),
+    //     category: req.body["category"],
+    //     priority: req.body["priority"],
+    //     goal_origin: req.body["goal_origin"],
+    //     time_estimate: req.body["time_estimate"]
+    // });
+    console.log(req.body["name"])
+
+    taskEntry.updateOne({_id: id},{"name": req.body["name"]}).exec((err, raw)=> {
+        if(err){
+            console.log(err)
+        }
+        console.log("raw")
+        console.log("Working")
+    })
+}
+
+module.exports.deleteModelitem = function (
+    req: Request,
+    res: Response
+) {
+    console.log("trying to delete item")
+
+    const id = req.params.id
+    console.log(id)
+   
+    taskEntry.deleteOne({_id: id}).exec((data) => {
+        
+        res.status(202);
+    })
+
 }

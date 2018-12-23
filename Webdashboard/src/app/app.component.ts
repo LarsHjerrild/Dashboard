@@ -1,7 +1,10 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Task, CATEGORIES, PRIORITIES } from './task';
 import { TaskService } from './task.service';
-import { Subscription } from 'rxjs';
+import { Subscription, from } from 'rxjs';
+import { ModalServiceService } from './modal-service.service'
+import { TaskeditformComponent } from './taskeditform/taskeditform.component'
+import { TaskformComponent } from './taskform/taskform.component';
 
 @Component({
   selector: 'app-root',
@@ -12,30 +15,38 @@ import { Subscription } from 'rxjs';
 
 
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
 
   tasks: Task[];
+  task = new Task();
+  constructor(private taskService: TaskService, private modalService: ModalServiceService) {
 
-  constructor(private taskService: TaskService, ) {
-
+  }
+  
+  ngOnChanges(){
+    this.getAllTasks();
   }
 
   ngOnInit() {
 
     this.getAllTasks();
 
-    const task: Task = {
-      name: "Mytask",
-      description: "Cool task",
-      category: CATEGORIES.FUN,
-      priority: PRIORITIES.HIGH,
-      goal_origin: "something",
-      time_estimate: 10,
-      due_date: new Date()
-    }
+    // const task: Task = {
+    //   name: "Mytask",
+    //   description: "Cool task",
+    //   category: CATEGORIES.FUN,
+    //   priority: PRIORITIES.HIGH,
+    //   goal_origin: "something",
+    //   time_estimate: 10,
+    //   due_date: new Date()
+    // }
 
-    this.addTask(task)
+    // this.addTask(task)
   }
+  // close(e) {
+  //   console.log("Closing")
+  //   document.getElementById('form-container').style.display = "none";
+  // }
 
   getAllTasks() {
     this.taskService.getAllTasks().subscribe(res => {
@@ -45,18 +56,21 @@ export class AppComponent implements OnInit {
 
   addTask(task: Task) {
     this.taskService.addTask(task).subscribe((data) => {
-      console.log(data)
     });
   }
 
   openTaskForm() {
-    document.getElementById('form-container').style.display = "flex";
+    this.modalService.init(TaskformComponent, {}, {})
   }
-  closeTaskForm() {
-    document.getElementById('form-container').style.display = "none";
+
+
+  update(e) {
+    console.log(e)
+    let inputs = {
+      task: e
+    }
+    this.modalService.init(TaskeditformComponent, inputs, {})
   }
 
   title = 'Webdashboard';
-
-
 }
