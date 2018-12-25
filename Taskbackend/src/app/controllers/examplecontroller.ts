@@ -94,13 +94,11 @@ module.exports.updateModelitem = function (
     // });
     console.log(req.body["name"])
 
-    taskEntry.updateOne({_id: id},{"name": req.body["name"]}).exec((err, raw)=> {
-        if(err){
-            console.log(err)
-        }
-        console.log("raw")
-        console.log("Working")
+    taskEntry.findById(id).exec(function(err, data) {
+        console.log(data)
     })
+
+    // taskEntry.updateOne({"_id": id)},{$set:{"name": req.body["name"]}})
 }
 
 module.exports.deleteModelitem = function (

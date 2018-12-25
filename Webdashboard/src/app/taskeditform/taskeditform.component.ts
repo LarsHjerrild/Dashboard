@@ -44,6 +44,7 @@ export class TaskeditformComponent implements OnInit {
 
     // console.log(this.task.priority)
     let tmp: Task = new Task();
+    tmp._id = this.task._id
     tmp.name = this.taskForm.value.name
     tmp.description = this.taskForm.value.description
     tmp.due_date = this.taskForm.value.due_date

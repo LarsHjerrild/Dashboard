@@ -43,12 +43,8 @@ module.exports.updateModelitem = function (req, res) {
     var id = req.body["_id"];
     console.log(id);
     console.log(req.body["name"]);
-    taskEntry.updateOne({ _id: id }, { "name": req.body["name"] }).exec(function (err, raw) {
-        if (err) {
-            console.log(err);
-        }
-        console.log("raw");
-        console.log("Working");
+    taskEntry.findById(id).exec(function (err, data) {
+        console.log(data);
     });
 };
 module.exports.deleteModelitem = function (req, res) {
