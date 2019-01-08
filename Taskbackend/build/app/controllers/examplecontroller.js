@@ -38,13 +38,19 @@ module.exports.getModelitem = function (req, res) {
     });
 };
 module.exports.updateModelitem = function (req, res) {
-    console.log("trying to update item");
-    console.log(req.body['priority']);
-    var id = req.body["_id"];
-    console.log(id);
-    console.log(req.body["name"]);
-    taskEntry.findById(id).exec(function (err, data) {
-        console.log(data);
+    taskEntry.updateOne({ '_id': req.body["_id"] }, {
+        $set: {
+            'name': req.body["name"],
+            'description': req.body["description"],
+            'due_date': new Date(req.body["due_date"]),
+            'category': req.body["category"],
+            'priority': req.body["priority"],
+            'goal_origin': req.body["goal_origin"],
+            'time_estimate': req.body["time_estimate"]
+        }
+    }, function () {
+        res.status(202);
+        res.json("_id :" + req.body["_id"]);
     });
 };
 module.exports.deleteModelitem = function (req, res) {
@@ -52,6 +58,8 @@ module.exports.deleteModelitem = function (req, res) {
     var id = req.params.id;
     console.log(id);
     taskEntry.deleteOne({ _id: id }).exec(function (data) {
+        console.log(data);
+        res.json(data);
         res.status(202);
     });
 };

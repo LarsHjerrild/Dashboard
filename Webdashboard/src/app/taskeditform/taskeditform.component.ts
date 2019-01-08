@@ -11,11 +11,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class TaskeditformComponent implements OnInit {
   @Input() task: Task;
-  
+
   taskForm: FormGroup;
 
 
-  constructor(fb: FormBuilder, private modalService : ModalServiceService, private taskservice: TaskService) {
+  constructor(fb: FormBuilder, private modalService: ModalServiceService, private taskservice: TaskService) {
     this.taskForm = fb.group({
       name: [''],
       description: [''],
@@ -25,19 +25,19 @@ export class TaskeditformComponent implements OnInit {
       goal_origin: [''],
       time_estimate: ['']
     })
-   }
+  }
 
   ngOnInit() {
     this.taskForm.controls['name'].setValue(this.task.name)
     this.taskForm.controls['description'].setValue(this.task.description)
-    this.taskForm.controls['due_date'].setValue(new Date(this.task.due_date).toISOString().substring(0,10))
+    this.taskForm.controls['due_date'].setValue(new Date(this.task.due_date).toISOString().substring(0, 10))
     this.taskForm.controls['goal_origin'].setValue(this.task.goal_origin)
     this.taskForm.controls['priority'].setValue(this.task.priority)
     this.taskForm.controls['time_estimate'].setValue(this.task.time_estimate)
     this.taskForm.value.name = this.task.name
   }
 
-  updateTask(){
+  updateTask() {
     // console.log(this.taskForm.value.priority)
 
     // this.task.priority = PRIORITIES.HIGH
@@ -55,23 +55,30 @@ export class TaskeditformComponent implements OnInit {
     console.log(tmp)
 
     this.taskservice.updateTask(tmp, this.task._id).subscribe((data) => {
-      console.log("I actually got something back")
+
+      this.task.name = this.taskForm.value.name
+      this.task.description = this.taskForm.value.description
+      this.task.due_date = this.taskForm.value.due_date
+      this.task.goal_origin = this.taskForm.value.goal_origin
+      this.task.priority = this.taskForm.value.priority
+      this.task.time_estimate = this.taskForm.value.time_estimate
+
+
+      this.closeForm()
+
     })
   }
 
-  public close() {
-    this.modalService.destroy();
-  }
-  
-  deleteTask(){
-    this.taskservice.deleteTask(this.task._id).subscribe((data) =>{
+ 
 
-      this.modalService.destroy()
+  deleteTask() {
+    this.taskservice.deleteTask(this.task._id).subscribe((data) => {
+      this.closeForm()
     })
   }
 
   closeForm() {
-    this.close()
+    this.modalService.destroy();
   }
 
 }

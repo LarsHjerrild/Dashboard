@@ -47,28 +47,10 @@ module.exports.postModelitem = function (
 
 
 module.exports.getModelitem = function (req: any, res: any) {
-
-    // let tmp :ExamleModelClass = {item1: 6, item2: 'Awesome'}
-    //let tmp: Task[] = TASKS
-
     taskEntry.find().then((data) => {
         res.status(200);
         res.json(data);
     })
-
-
-    // var tmp: ExamleModelClass {
-    //     item1 = 6,
-    //     item2 = 'Cool'
-    // };
-    // tmp.item1 = 6;
-    // tmp.item2 = 'Cool'
-
-    // logic.ExampleBLLUsingModel(tmp).then((data: ExamleModelClass) => {
-
-    //     res.status(200);
-    //     res.json(data);
-    // })
 }
 
 
@@ -76,43 +58,33 @@ module.exports.updateModelitem = function (
     req: Request,
     res: Response
 ) {
-    console.log("trying to update item")
+    taskEntry.updateOne({ '_id': req.body["_id"] }, {
+        $set: {
+            'name': req.body["name"],
+            'description': req.body["description"],
+            'due_date': new Date(req.body["due_date"]),
+            'category': req.body["category"],
+            'priority': req.body["priority"],
+            'goal_origin': req.body["goal_origin"],
+            'time_estimate': req.body["time_estimate"]
+        }
+    }, () => {
 
-    console.log(req.body['priority'])
 
-    const id = req.body["_id"]
-    console.log(id)
-    // const newEntry = new taskEntry({
-    //     name: req.body["name"],
-    //     description: req.body["description"],
-    //     creation_date: new Date(),
-    //     due_date: new Date(req.body["due_date"]),
-    //     category: req.body["category"],
-    //     priority: req.body["priority"],
-    //     goal_origin: req.body["goal_origin"],
-    //     time_estimate: req.body["time_estimate"]
-    // });
-    console.log(req.body["name"])
+        res.status(202);
+        res.json("_id :" + req.body["_id"])
 
-    taskEntry.findById(id).exec(function(err, data) {
-        console.log(data)
     })
-
-    // taskEntry.updateOne({"_id": id)},{$set:{"name": req.body["name"]}})
 }
 
 module.exports.deleteModelitem = function (
     req: Request,
     res: Response
 ) {
-    console.log("trying to delete item")
-
     const id = req.params.id
-    console.log(id)
-   
-    taskEntry.deleteOne({_id: id}).exec((data) => {
-        
+
+    taskEntry.deleteOne({ _id: id }).exec((data) => {
+        res.json(data)
         res.status(202);
     })
-
 }
