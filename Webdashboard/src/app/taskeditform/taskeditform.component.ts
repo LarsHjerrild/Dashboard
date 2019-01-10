@@ -38,11 +38,6 @@ export class TaskeditformComponent implements OnInit {
   }
 
   updateTask() {
-    // console.log(this.taskForm.value.priority)
-
-    // this.task.priority = PRIORITIES.HIGH
-
-    // console.log(this.task.priority)
     let tmp: Task = new Task();
     tmp._id = this.task._id
     tmp.name = this.taskForm.value.name
@@ -52,7 +47,6 @@ export class TaskeditformComponent implements OnInit {
     tmp.priority = this.taskForm.value.priority
     tmp.time_estimate = this.taskForm.value.time_estimate
 
-    console.log(tmp)
 
     this.taskservice.updateTask(tmp, this.task._id).subscribe((data) => {
 

@@ -1,10 +1,12 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, EventEmitter, Output } from '@angular/core';
 import { Task, CATEGORIES, PRIORITIES } from './task';
 import { TaskService } from './task.service';
 import { Subscription, from } from 'rxjs';
 import { ModalServiceService } from './modal-service.service'
 import { TaskeditformComponent } from './taskeditform/taskeditform.component'
 import { TaskformComponent } from './taskform/taskform.component';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,57 +17,49 @@ import { TaskformComponent } from './taskform/taskform.component';
 
 
 
-export class AppComponent implements OnInit, OnChanges {
+export class AppComponent implements OnInit {
 
   tasks: Task[];
   task = new Task();
   constructor(private taskService: TaskService, private modalService: ModalServiceService) {
 
   }
-  
-  ngOnChanges(){
-    this.getAllTasks();
-  }
 
   ngOnInit() {
 
     this.getAllTasks();
-
-    // const task: Task = {
-    //   name: "Mytask",
-    //   description: "Cool task",
-    //   category: CATEGORIES.FUN,
-    //   priority: PRIORITIES.HIGH,
-    //   goal_origin: "something",
-    //   time_estimate: 10,
-    //   due_date: new Date()
-    // }
-
-    // this.addTask(task)
   }
-  // close(e) {
-  //   console.log("Closing")
-  //   document.getElementById('form-container').style.display = "none";
-  // }
+
 
   getAllTasks() {
-    this.taskService.getAllTasks().subscribe(res => {
+    this.taskService.getAllTasks().pipe(first()).subscribe(res => {
+      console.log("Getting all tasks")
       this.tasks = res;
     });
   }
 
-  addTask(task: Task) {
-    this.taskService.addTask(task).subscribe((data) => {
-    });
-  }
+  // addTask(task: Task) {
+  //   this.taskService.addTask(task).subscribe(() => {
+
+  //   });
+  // }
 
   openTaskForm() {
-    this.modalService.init(TaskformComponent, {}, {})
+
+    let hep = this.modalService.init(TaskformComponent, {}, {})
+
+    hep.instance.notify.subscribe(e => {
+
+      console.log("Should get all")
+      this.getAllTasks()
+    })
   }
 
+  notify(e) {
+    console.log("WORKED!!!!")
+  }
 
   update(e) {
-    console.log(e)
     let inputs = {
       task: e
     }

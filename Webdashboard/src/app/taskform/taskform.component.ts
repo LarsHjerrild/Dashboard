@@ -11,11 +11,9 @@ import { ModalServiceService } from '../modal-service.service';
   styleUrls: ['./taskform.component.scss']
 })
 export class TaskformComponent implements OnInit {
-  @Output() close = new EventEmitter();
-  
+  @Output() notify = new EventEmitter();
 
   taskForm: FormGroup;
-
   
   constructor(fb: FormBuilder, private taskService: TaskService, private modalService : ModalServiceService) { 
     this.taskForm = fb.group({
@@ -38,25 +36,17 @@ export class TaskformComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    // let creationDate = new Date(this.task.creation_date)
-
-    // this.taskForm.controls['name'].setValue(this.task.name)
-    // this.taskForm.controls['description'].setValue(this.task.description)
     this.taskForm.controls['due_date'].setValue(this.dateadd(5))
-    // this.taskForm.controls['goal_origin'].setValue(this.task.goal_origin)
-    // this.taskForm.controls['priority'].setValue(this.task.priority)
-    // this.taskForm.controls['time_estimate'].setValue(this.task.time_estimate)
-    // this.taskForm.controls['creation_date'].setValue(creationDate.toISOString().substring(0,10))
-    // this.taskForm.value.name = this.task.name
+
   }
   closeForm(){
+    this.notify.emit()
+    console.log("closed")
     this.modalService.destroy()
   }
 
   onSubmit(){
-    console.warn("Submitting")
-    // console.warn(this.taskForm.value.name)
+  
     let tmp: Task = new Task();
 
     tmp.name = this.taskForm.value.name
@@ -67,6 +57,7 @@ export class TaskformComponent implements OnInit {
     tmp.time_estimate = this.taskForm.value.time_estimate
 
     this.taskService.addTask(tmp).subscribe((data) => {
+      this.notify.emit()    
       this.modalService.destroy()
     });
 

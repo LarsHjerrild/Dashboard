@@ -28,7 +28,8 @@ module.exports.postModelitem = function (req, res) {
     });
     newEntry.save().then(function (data) {
         res.status(201);
-        res.json(newEntry._id);
+        console.log("wee");
+        res.json("_id: well");
     });
 };
 module.exports.getModelitem = function (req, res) {
@@ -54,11 +55,8 @@ module.exports.updateModelitem = function (req, res) {
     });
 };
 module.exports.deleteModelitem = function (req, res) {
-    console.log("trying to delete item");
     var id = req.params.id;
-    console.log(id);
     taskEntry.deleteOne({ _id: id }).exec(function (data) {
-        console.log(data);
         res.json(data);
         res.status(202);
     });

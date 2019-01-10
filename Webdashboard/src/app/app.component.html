@@ -7,7 +7,7 @@
     <!-- <button type="button" (click)="openModal()">Oen modal</button> 
     <button type="button" (click)="openModalf()">Cool btn</button> -->
 
-    <div id="modal-container" class="hidden"></div>
+    <div id="modal-container" class="hidden" (notify)="notify($event)"></div>
     <div id="overlay" (click)="removeModal()" class="hidden"></div>
 
 

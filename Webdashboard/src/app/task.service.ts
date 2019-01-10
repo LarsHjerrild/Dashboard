@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Task } from './task';
+import { first } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,14 +19,11 @@ export class TaskService {
   }
 
   addTask(task :Task): Observable<Task> {
-    console.log("Requested")
     return this.http.post<Task>('http://localhost:3000/api/model', task)
   }
 
   updateTask(task :Task, id: string): Observable<Task> {
-    console.log("update requested")
     let url: string = 'http://localhost:3000/api/model/' + id
-    console.log(task)
     return this.http.put<Task>(url,task)
   }
 

@@ -20,9 +20,11 @@ export class ModalServiceService {
       outputs:outputs
     }
 
-    this.domService.appendComponentTo(this.modalElementId, component, componentConfig);
+    let hep = this.domService.appendComponentTo(this.modalElementId, component, componentConfig);
     document.getElementById(this.modalElementId).className = 'show';
     document.getElementById(this.overlayElementId).className = 'show';
+
+    return hep
   }
 
   destroy() {

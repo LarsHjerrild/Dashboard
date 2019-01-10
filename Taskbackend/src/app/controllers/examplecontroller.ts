@@ -39,8 +39,8 @@ module.exports.postModelitem = function (
 
     newEntry.save().then(data => {
         res.status(201);
-        res.json(newEntry._id);
-
+        console.log("wee")
+        res.json("_id: well");
     });
 
 }
