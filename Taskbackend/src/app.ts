@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 
 app.use('/api', routeapi);
 
-
+console.log(process.env.NODE_ENV)
 
 
 

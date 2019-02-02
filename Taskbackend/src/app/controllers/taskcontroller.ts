@@ -7,22 +7,9 @@ var logic = require('../../BLL/examplelogic')
 
 const taskEntry = model<ITaskEntryDocument>("taskEntry");
 
-
-// module.exports.getentry = function (req: any, res: any) {
-    
-//     logic.ExampleBLL(5, 3).then((data: number) => {
-//         if (!data) {
-            
-//             console.log('Error')
-//             res.status(503)
-//             res.json('fuck')
-//         }
-//         res.status(200);
-//         res.json(data);
-//     })
-// }
-
-module.exports.getModelitem = function (req: any, res: any) {
+module.exports.getModelitem = function (
+    req: Request, 
+    res: Response) {
     taskEntry.find().then((data) => {
         res.status(200);
         res.json(data);
@@ -50,10 +37,6 @@ module.exports.postModelitem = function (
     });
 
 }
-
-
-
-
 module.exports.updateModelitem = function (
     req: Request,
     res: Response
@@ -76,7 +59,6 @@ module.exports.updateModelitem = function (
 
     })
 }
-
 module.exports.deleteModelitem = function (
     req: Request,
     res: Response

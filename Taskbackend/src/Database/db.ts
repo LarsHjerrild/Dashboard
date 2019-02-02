@@ -3,7 +3,10 @@ import { connect, connection, model } from "mongoose";
 import { ITaskEntryDocument } from "../Models/task-entry.model";
 import taskEntrySchema from "./Schemas/task-entry-schema";
 
-const dbURI :any = process.env.TASK_MONGODB_URI;
+// const dbURI :any = process.env.TASK_MONGODB_URI;
+const dbURI :any = 'mongodb://localhost/task-project';
+
+
 
 connect(
   dbURI,
