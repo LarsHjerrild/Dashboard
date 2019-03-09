@@ -1,33 +1,84 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="grid-container">
-  <div class="grid-item"></div>
-  <div class="grid-item">
-    <!-- <ng-container *ngIf="tasks"> -->
-    <button type="button" (click)="openTaskForm()">Create new task</button>
-    <!-- <button type="button" (click)="openModal()">Oen modal</button> 
+  <!-- <ng-container *ngIf="tasks"> -->
+  <!-- <button type="button" (click)="openTaskForm()">Create new task</button> -->
+  <!-- <button type="button" (click)="openModal()">Oen modal</button> 
     <button type="button" (click)="openModalf()">Cool btn</button> -->
+  <div class="sidebar">
+    <div class="profile">
+      <div class="profile-picture">
+        <!-- <img src="../assets/prof.png"> -->
+        <i class="material-icons" style="font-size: 96px;">
+          account_circle
+        </i>
+      </div>
+      <h2>Lars</h2>
+    </div>
+    <hr style="margin-bottom:5px">
+    <nav class="sidebar-navigation">
+      <ul class="sidebar-points">
+        <li>Tasks</li>
+        <li>Projects</li>
+        <li>Stats</li>
+      </ul>
+    </nav>
+  </div>
+  
+  
+  <div class="main-window">
+    <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
+    <div class="task-wrapper">
+        <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"></app-task>
+      <!-- <div class="task-wrapper">
+        <div *ngFor="let hero of [1,2,3]" class="task">
+          <div class="task-header">
+            <p>Clean house </p>
+            <i class="material-icons md-16 danger">
+              error_outline
+            </i>
+          </div>
+          <div class="task-main">
+            <label>Desc: </label>
+            <p>The whole room is to be cleaned and washed. in addition it should smell of roses.</p>
 
-    <div id="modal-container" class="hidden" (notify)="notify($event)"></div>
-    <div id="overlay" (click)="removeModal()" class="hidden"></div>
+            <p>Estimated hours: 7h</p>
 
+            <hr>
+          </div>
 
-    <div class="flex-container">
-
+          <div class="task-footer">
+            <div>
+              <i class="material-icons">
+                edit
+              </i>
+              <i class="material-icons" id="task-delete">
+                delete
+              </i>
+            </div>
+            <p>Created: 22-07.16</p>
+          </div>
+        </div>
+      </div> -->
       <!-- <app-taskform id="form-container" (close)="close($event)" [task]="task"></app-taskform> -->
       <!-- <div class="flex-item"></div>
         <div class="flex-item"></div>
         <div class="flex-item"></div> -->
-      <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)"></app-task>
     </div>
-    <!-- </ng-container> -->
   </div>
+
+
+
+
+
+  <!-- </ng-container> -->
+  <!-- <router-outlet></router-outlet> -->
+
 </div>
 
-<router-outlet></router-outlet>
 
 <!-- <div id="form-container">
-        <form id="form-inside">
-          
+    <form id="form-inside">
+      
           
           <div class="modal-part">
             <h3>Task creation</h3>
@@ -51,5 +102,7 @@
             <button type="submit">Submit</button>
             <button type="button" (click)="closeTaskForm()">Cancel</button>
           </div>
-          </form>
-        </div> -->
+        </form>
+      </div> -->
+<div id="modal-container" class="hidden" (notify)="notify($event)"></div>
+<div id="overlay" (click)="removeModal()" class="hidden"></div>

@@ -14,7 +14,6 @@ app.use(function (req, res, next) {
 });
 app.use(bodyParser.json());
 app.use('/api', routeapi);
-console.log(process.env.NODE_ENV);
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
     res.status(404);

@@ -1,7 +1,7 @@
 <form id="form-inside" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
 
   <div class="modal-part">
-    <h3>Task creation</h3> <h1>{{this.notify.observers.length}}</h1>
+    <h2 style="color:black;">Task creation</h2> <h1>{{this.notify.observers.length}}</h1>
   </div>
   <div class="modal-part model-inputs">
     <div class="form-group">
@@ -10,20 +10,20 @@
     <div class="form-group">
       <input class="form-control" type="text" formControlName="description" placeholder="Description">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <input class="form-control" type="date" formControlName="due_date" >
-    </div>
-    <div class="form-group">
+    </div> -->
+    <!-- <div class="form-group">
       <input class="form-control" type="number" formControlName="category" placeholder="Category">
     </div>
     <div class="form-group">
       <input class="form-control" type="number" formControlName="priority" placeholder="Priority">
-    </div>
-    <div class="form-group">
+    </div> -->
+    <!-- <div class="form-group">
       <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin">
-    </div>
+    </div> -->
     <div class="form-group">
-      <input class="form-control" type="number" formControlName="time_estimate" placeholder="Time estimahe (hours)">
+      <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
     </div>
   </div>
   <div class="modal-part">

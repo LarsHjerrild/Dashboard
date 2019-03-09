@@ -23,7 +23,7 @@ export class TaskformComponent implements OnInit {
       category: [''],
       priority: [''],
       goal_origin: [''],
-      time_estimate: ['']
+      estimated_time: ['']
     })
   }
 
@@ -51,10 +51,10 @@ export class TaskformComponent implements OnInit {
 
     tmp.name = this.taskForm.value.name
     tmp.description = this.taskForm.value.description
-    tmp.due_date = this.taskForm.value.due_date
-    tmp.goal_origin = this.taskForm.value.goal_origin
-    tmp.priority = this.taskForm.value.priority
-    tmp.time_estimate = this.taskForm.value.time_estimate
+    // tmp.due_date = this.taskForm.value.due_date
+    // tmp.goal_origin = this.taskForm.value.goal_origin
+    // tmp.priority = this.taskForm.value.priority
+    tmp.estimated_time = this.taskForm.value.estimated_time
 
     this.taskService.addTask(tmp).subscribe((data) => {
       this.notify.emit()    

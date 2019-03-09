@@ -1,3 +1,5 @@
+@import '../../sass/variables.scss';
+
 .flex-item {
     height: 200px;
     width: 200px;
@@ -13,4 +15,69 @@
 .flex-item:hover {
     background-color: rgba(233, 233, 198, 1);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.task {
+    display: grid;
+    height: 260px;
+    width: 240px;
+    grid-template-rows: 1fr 4fr 2fr;
+    //   background-color: $primary;
+    background-color: aliceblue;
+    margin: 1em;
+    -webkit-box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+    -moz-box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+    box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+  }
+  .task:hover {
+  }
+
+  .task-header {
+    background-color: $primary;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .md-16 {
+      padding-top: 4px;
+      font-size: 16pt;
+  }
+  
+  .warning {
+      color: gold;
+  }
+  .danger {
+      color: red;
+  }
+  
+  
+  .task-header p {
+    margin: 4px;
+  }
+  
+  .task-main {
+    color: black;
+    padding: 1em;
+    font-size: 10pt;
+    padding-bottom: 0%;
+  }
+  .task-footer {
+    margin: 0%;
+    padding: 1em;
+    color: $primary-light;
+    display: flex;
+      justify-content: space-between;
+  }
+
+  .task-footer p {
+
+    font-size: 8pt;
+    color: gray;
+}
+
+#task-delete {
+  color: gray;
 }

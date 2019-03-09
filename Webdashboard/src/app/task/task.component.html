@@ -1,5 +1,39 @@
-<div class="flex-item" (click)="onTaskClick()">
+<!-- <div class="flex-item" (click)="onTaskClick()">
   <div class="center-flex-item">
     <p>{{task.name}}</p>
   </div>
+</div> -->
+
+
+<div class="task">
+  <div class="task-header">
+    <p>{{task.name}}</p>
+    <i class="material-icons md-16">
+      error_outline
+    </i>
+  </div>
+  <div class="task-main">
+    <label>Desc: </label>
+    <p>{{task.description}}</p>
+    <p *ngIf="task.estimated_time; else elseBlock">Estimated hours: {{task.estimated_time}}h</p>
+    <ng-template #elseBlock>No Estimate</ng-template>
+    <hr>
+  </div>
+
+  <div class="task-footer">
+    <div>
+      <a (click)="onTaskClick()" href="#">
+        <i  class="material-icons">
+          edit
+        </i>
+      </a>
+      <a (click)="onTaskDelete()" href="#">
+        <i class="material-icons" id="task-delete">
+          delete
+        </i>
+      </a>
+    </div>
+    <p>Created: 22-07.16</p>
+  </div>
+
 </div>

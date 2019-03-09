@@ -67,3 +67,5 @@ function normalizePort(val :string) {
       : 'port ' + addr.port;
       console.log("listening on ", addr)
   }
+
+  export default server

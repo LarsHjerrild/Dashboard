@@ -27,7 +27,7 @@ export class Task {
     category: CATEGORIES;
     priority: PRIORITIES;
     goal_origin: string;
-    time_estimate: number;
+    estimated_time: number;
 }
 
 export const TASKS :Task[] = [
@@ -39,7 +39,7 @@ export const TASKS :Task[] = [
         category: CATEGORIES.LEARNING,
         priority: PRIORITIES.HIGH,
         goal_origin: "unknown",
-        time_estimate: 10
+        estimated_time: 10
     },
     {
         name: "Set up backend",
@@ -49,7 +49,7 @@ export const TASKS :Task[] = [
         category: CATEGORIES.MUSIC,
         priority: PRIORITIES.CRITICAL,
         goal_origin: "unknown",
-        time_estimate: 12
+        estimated_time: 12
     },
     {
         name: "Play keyboard tunes",
@@ -59,6 +59,6 @@ export const TASKS :Task[] = [
         category: CATEGORIES.DEVELOPMENT,
         priority: PRIORITIES.LOW,
         goal_origin: "unknown",
-        time_estimate: 14
+        estimated_time: 14
     }
 ];

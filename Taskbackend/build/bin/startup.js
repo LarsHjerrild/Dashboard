@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 require('dotenv').config();
 var app = require("../app");
 var http = require('http');
@@ -44,3 +46,4 @@ function onListening() {
         : 'port ' + addr.port;
     console.log("listening on ", addr);
 }
+exports["default"] = server;

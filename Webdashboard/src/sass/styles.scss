@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-html *
-{
-    font-family: 'Roboto', sans-serif !important;
+
+@import './variables.scss';
+
+html, body {
+  height:100%;
+  font-family: 'Roboto Mono', monospace;
+  margin: 0%;
+  color: whitesmoke;
 }
 
-body {
-  background-image: url("./assets/img/back.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;;
+ul {
+  list-style-type: none;
 }
 
 input[type=button], input[type=submit], input[type=reset],button[type=button], button[type=submit] {
-    background-color: rgb(218, 182, 66);
+    background-color: $primary;
     border: none;
     color: white;
     padding: 16px 32px;

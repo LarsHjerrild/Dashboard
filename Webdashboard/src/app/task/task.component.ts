@@ -8,7 +8,9 @@ import {Task} from '../task'
 })
 export class TaskComponent implements OnInit {
   @Output() update = new EventEmitter();
+  @Output() delete = new EventEmitter();
   @Input() task: Task;
+
 
   constructor() { }
 
@@ -18,5 +20,7 @@ export class TaskComponent implements OnInit {
   onTaskClick(){
     this.update.emit(this.task)
   }
-
+  onTaskDelete(){
+    this.delete.emit(this.task)
+  }
 }

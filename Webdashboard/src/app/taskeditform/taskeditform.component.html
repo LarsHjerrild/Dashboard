@@ -8,25 +8,25 @@
 
     <input class="form-control" type="text" formControlName="description" placeholder="Description">
 
-    <input class="form-control" type="date" formControlName="due_date">
+    <!-- <input class="form-control" type="date" formControlName="due_date"> -->
 
-    <input class="form-control" type="number" formControlName="category" placeholder="Category">
+    <!-- <input class="form-control" type="number" formControlName="category" placeholder="Category"> -->
 
     <!-- <input class="form-control" type="number" formControlName="priority" placeholder="Priority"> -->
-    <select class="form-control" formControlName=priority>
+    <!-- <select class="form-control" formControlName=priority>
       <option value="0">Low</option>
       <option value="1"> Medium</option>
       <option value="2">High</option>
       <option value="3">Critical</option>
-    </select>
+    </select> -->
 
-    <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin">
+    <!-- <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin"> -->
 
-    <input class="form-control" type="number" formControlName="time_estimate" placeholder="Time estimahe (hours)">
+    <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
 
 
   </div>
   <button type="button" (click)="updateTask()">Update Task</button>
-  <button type="button" (click)="deleteTask()">Delete Task</button>
+  <!-- <button type="button" (click)="deleteTask()">Delete Task</button> -->
   <button type="button" (click)="closeForm()">close</button>
 </form>

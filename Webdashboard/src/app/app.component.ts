@@ -26,15 +26,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.getAllTasks();
   }
 
 
   getAllTasks() {
     this.taskService.getAllTasks().pipe(first()).subscribe(res => {
-      console.log("Getting all tasks")
-      this.tasks = res;
+
+      //Change to task DTO
+      this.tasks = res.tasks;
     });
   }
 
@@ -57,6 +57,13 @@ export class AppComponent implements OnInit {
 
   notify(e) {
     console.log("WORKED!!!!")
+  }
+
+  /**Maybe not so pretty but okay TODO evaluate if OK */
+  delete(e) {
+    this.taskService.deleteTask(e._id).pipe(first()).subscribe(res => {
+      this.getAllTasks()
+    })
   }
 
   update(e) {
