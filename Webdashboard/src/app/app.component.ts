@@ -66,6 +66,13 @@ export class AppComponent implements OnInit {
     })
   }
 
+  verify(e) {
+    console.log(e)
+    this.taskService.updateTask(e,e._id).pipe(first()).subscribe(res => {
+      this.getAllTasks()
+    })
+  }
+
   update(e) {
     let inputs = {
       task: e

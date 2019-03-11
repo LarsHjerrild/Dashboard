@@ -28,7 +28,7 @@
   <div class="main-window">
     <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
     <div class="task-wrapper">
-        <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"></app-task>
+        <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)" (verify)="verify($event)"></app-task>
       <!-- <div class="task-wrapper">
         <div *ngFor="let hero of [1,2,3]" class="task">
           <div class="task-header">
@@ -105,4 +105,4 @@
         </form>
       </div> -->
 <div id="modal-container" class="hidden" (notify)="notify($event)"></div>
-<div id="overlay" (click)="removeModal()" class="hidden"></div>
+<!-- <div id="overlay" (click)="removeModal()" class="hidden"></div> -->

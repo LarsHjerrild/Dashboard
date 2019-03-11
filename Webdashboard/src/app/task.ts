@@ -21,6 +21,7 @@ export enum CATEGORIES {
 export class Task {
     _id?: string
     name: string;
+    status?: string;
     description: string;
     creation_date?: Date;
     due_date: Date;

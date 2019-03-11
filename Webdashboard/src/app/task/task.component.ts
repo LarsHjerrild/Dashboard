@@ -9,6 +9,7 @@ import {Task} from '../task'
 export class TaskComponent implements OnInit {
   @Output() update = new EventEmitter();
   @Output() delete = new EventEmitter();
+  @Output() verify = new EventEmitter();
   @Input() task: Task;
 
 
@@ -22,5 +23,11 @@ export class TaskComponent implements OnInit {
   }
   onTaskDelete(){
     this.delete.emit(this.task)
+  }
+
+  OnVerify() {
+    this.task.status = 'completed'
+    console.log(this.task)
+    this.verify.emit(this.task)
   }
 }
