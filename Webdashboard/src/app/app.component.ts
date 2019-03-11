@@ -80,5 +80,5 @@ export class AppComponent implements OnInit {
     this.modalService.init(TaskeditformComponent, inputs, {})
   }
 
-  title = 'Webdashboard';
+  title = 'Atta | working smarter';
 }

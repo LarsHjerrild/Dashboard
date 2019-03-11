@@ -27,7 +27,6 @@ export class TaskComponent implements OnInit {
 
   OnVerify() {
     this.task.status = 'completed'
-    console.log(this.task)
     this.verify.emit(this.task)
   }
 }
