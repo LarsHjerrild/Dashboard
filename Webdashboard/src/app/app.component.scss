@@ -129,14 +129,9 @@
   color: gray;
 }
 
-
-
-
 .flex-container {
-    // background-color: rgba(255, 255, 255,0.3);
     display: flex;
     column-gap: 30px;
-    // justify-content: space-between;
     align-content: space-around;
     flex-wrap: wrap;
 }
@@ -180,16 +175,7 @@
     grid-row-gap: 5px;
     box-shadow: 4px 4px 2px #aaaaaa;
 }
-// .inside-form {
-//     background-color: beige;
-//     margin-left: 20px;
-//     margin-right: 20px;
-// }
 
-// .btns {
-//     border-top:1px solid black;
-//     justify-self: end;
-// }
 .modal-part {
     
     margin-left: 5%;
@@ -249,7 +235,6 @@ background-color: lightgrey;
     left: 28%;
     width: 375px;
     background: white;
-    // margin-left: -187.5px;
     text-align: center;
     box-shadow: 0px 0px 2px 1px black;
     z-index: 100;
