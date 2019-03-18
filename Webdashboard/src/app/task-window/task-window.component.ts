@@ -1,31 +1,22 @@
-import { Component, OnInit, OnChanges, EventEmitter, Output } from '@angular/core';
-import { Task, CATEGORIES, PRIORITIES } from './task';
-import { TaskService } from './task.service';
-import { Subscription, from, pipe } from 'rxjs';
-import { ModalServiceService } from './modal-service.service'
-import { TaskeditformComponent } from './taskeditform/taskeditform.component'
-import { TaskformComponent } from './taskform/taskform.component';
-import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
-import { first } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../task.service';
 import { FormControl } from '@angular/forms';
+import { Task } from '../task';
+import { switchMap, first } from 'rxjs/operators';
+import { ModalServiceService } from '../modal-service.service';
+import { TaskformComponent } from '../taskform/taskform.component';
+import { TaskeditformComponent } from '../taskeditform/taskeditform.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-task-window',
+  templateUrl: './task-window.component.html',
+  styleUrls: ['./task-window.component.scss']
 })
-
-
-
-
-export class AppComponent implements OnInit {
+export class TaskWindowComponent implements OnInit {
   searchfield: FormControl = new FormControl('');
   tasks: Task[];
   task = new Task();
-  constructor(private taskService: TaskService, private modalService: ModalServiceService) {
-
-  }
+  constructor(private taskService: TaskService, private modalService: ModalServiceService) { }
 
   ngOnInit() {
     this.getAllTasks();
@@ -36,8 +27,6 @@ export class AppComponent implements OnInit {
       this.tasks = res.tasks
     })
   }
-
-
   getAllTasks() {
     // var obs1 = this.taskService.getAllTasks()
     // obs1.pipe(switchMap((val) => {
@@ -62,12 +51,6 @@ export class AppComponent implements OnInit {
   mychange() {
     this.getAllTasks()
   }
-  // addTask(task: Task) {
-  //   this.taskService.addTask(task).subscribe(() => {
-
-  //   });
-  // }
-
   openTaskForm() {
 
     let hep = this.modalService.init(TaskformComponent, {}, {})
@@ -105,4 +88,5 @@ export class AppComponent implements OnInit {
   }
 
   title = 'Atta | working smarter';
+
 }

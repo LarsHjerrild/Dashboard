@@ -1,5 +1,5 @@
 
-@import '../sass/variables';
+@import '../../sass/variables';
 
 .grid-container {
     display: grid;
@@ -7,6 +7,8 @@
     grid-column-gap: 1em;
     height: 100%;
   }
+
+  
   
   .sidebar {
     background-color: $primary-dark;
@@ -260,9 +262,4 @@ background-color: lightgrey;
   .profile-picture{
     display: none;
   }
-}
-
-a, a:visited, a:hover, a:active {
-  color: inherit;
-  text-decoration: none;
 }

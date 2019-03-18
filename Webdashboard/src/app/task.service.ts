@@ -17,8 +17,10 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTasks(): Observable<any> {
-    return this.http.get<any>(rooturl+module)
+  getAllTasks(search? :string): Observable<any> { 
+    return this.http.get<any>(rooturl+module, 
+      {params: {name: search}
+    })
   }
 
   addTask(task :Task): Observable<Task> {

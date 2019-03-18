@@ -17,53 +17,25 @@
     <hr style="margin-bottom:5px">
     <nav class="sidebar-navigation">
       <ul class="sidebar-points">
-        <li>Tasks</li>
-        <li>Projects</li>
-        <li>Stats</li>
+        <li><a routerLink="tasks" routerLinkActive="active">Tasks </a></li>
+        <li><a routerLink="projects" routerLinkActive="active">Projects</a></li>
+        <li><a routerLink="stats" routerLinkActive="active">Stats</a></li>
       </ul>
     </nav>
   </div>
   
   
   <div class="main-window">
-    <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
+    
+    
+    <router-outlet></router-outlet>
+    <!-- <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
+    <input [formControl]="searchfield" type="text" placeholder="Search...">
     <div class="task-wrapper">
         <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)" (verify)="verify($event)"></app-task>
-      <!-- <div class="task-wrapper">
-        <div *ngFor="let hero of [1,2,3]" class="task">
-          <div class="task-header">
-            <p>Clean house </p>
-            <i class="material-icons md-16 danger">
-              error_outline
-            </i>
-          </div>
-          <div class="task-main">
-            <label>Desc: </label>
-            <p>The whole room is to be cleaned and washed. in addition it should smell of roses.</p>
-
-            <p>Estimated hours: 7h</p>
-
-            <hr>
-          </div>
-
-          <div class="task-footer">
-            <div>
-              <i class="material-icons">
-                edit
-              </i>
-              <i class="material-icons" id="task-delete">
-                delete
-              </i>
-            </div>
-            <p>Created: 22-07.16</p>
-          </div>
-        </div>
-      </div> -->
-      <!-- <app-taskform id="form-container" (close)="close($event)" [task]="task"></app-taskform> -->
-      <!-- <div class="flex-item"></div>
-        <div class="flex-item"></div>
-        <div class="flex-item"></div> -->
-    </div>
+    </div> -->
+  
+  
   </div>
 
 
@@ -71,7 +43,6 @@
 
 
   <!-- </ng-container> -->
-  <!-- <router-outlet></router-outlet> -->
 
 </div>
 
