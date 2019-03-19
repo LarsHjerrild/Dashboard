@@ -1,0 +1,60 @@
+.modal-container {
+  padding-top: 100px; /* Location of the box */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-inside {
+  background: white;
+  margin: auto;
+  margin-top: 1%;
+  display: grid;
+  height: 500px;
+  width: 800px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 4fr 1.5fr;
+  grid-row-gap: 5px;
+  box-shadow: 4px 4px 2px #aaaaaa;
+}
+
+.modal-header {
+  margin-left: 5%;
+  margin-right: 5%;
+
+  border-bottom: 1px solid lightgray;
+
+  h2{
+      color: black;
+  }
+}
+.model-inputs {
+  display: grid;
+  justify-content: stretch;
+  align-content: space-evenly;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+}
+
+.modal-part {
+    
+    margin-left: 5%;
+    margin-right: 5%;
+     
+    border-bottom:1px solid lightgray;
+}
+
+.form-group input {
+    flex: 1;
+}
+.form-group label {
+    margin-right: 5%;
+}

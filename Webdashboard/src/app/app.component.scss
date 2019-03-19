@@ -149,56 +149,56 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#form-container {
-    display: none;
-    padding-top: 100px; /* Location of the box */
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.4);
-}
+// #form-container {
+//     display: none;
+//     padding-top: 100px; /* Location of the box */
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%; /* Full width */
+//     height: 100%;
+//     z-index: 1;
+//     background-color: rgba(0,0,0,0.4);
+// }
 
-#form-inside {
-    background: white;
-    margin: auto;
-    margin-top: 1%;
-    display: grid;
-    height: 500px;
-    width: 800px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr 2fr;
-    grid-row-gap: 5px;
-    box-shadow: 4px 4px 2px #aaaaaa;
-}
+// #form-inside {
+//     background: white;
+//     margin: auto;
+//     margin-top: 1%;
+//     display: grid;
+//     height: 500px;
+//     width: 800px;
+//     grid-template-columns: 1fr;
+//     grid-template-rows: 1fr 4fr 2fr;
+//     grid-row-gap: 5px;
+//     box-shadow: 4px 4px 2px #aaaaaa;
+// }
 
-.modal-part {
+// .modal-part {
     
-    margin-left: 5%;
-    margin-right: 5%;
+//     margin-left: 5%;
+//     margin-right: 5%;
      
-    border-bottom:1px solid lightgray;
-}
+//     border-bottom:1px solid lightgray;
+// }
 
-.model-inputs {
-    display: grid;
-    justify-content: stretch;
-    align-content: space-evenly;
-}
+// .model-inputs {
+//     display: grid;
+//     justify-content: stretch;
+//     align-content: space-evenly;
+// }
 
-.form-group {
-    width: 100%;
-    display: flex;
-    justify-content: stretch;
-}
-.form-group input {
-    flex: 1;
-}
-.form-group label {
-    margin-right: 5%;
-}
+// .form-group {
+//     width: 100%;
+//     display: flex;
+//     justify-content: stretch;
+// }
+// .form-group input {
+//     flex: 1;
+// }
+// .form-group label {
+//     margin-right: 5%;
+// }
 
 .form-control {
     // width: 100%;
@@ -227,16 +227,16 @@ background-color: lightgrey;
 }
 
 
-#modal-container {
-    position:  fixed;
-    top: 150px;
-    left: 28%;
-    width: 375px;
-    background: white;
-    text-align: center;
-    box-shadow: 0px 0px 2px 1px black;
-    z-index: 100;
-}
+// #modal-container {
+//     position:  fixed;
+//     top: 150px;
+//     left: 28%;
+//     width: 375px;
+//     background: white;
+//     text-align: center;
+//     box-shadow: 0px 0px 2px 1px black;
+//     z-index: 100;
+// }
 
 #overlay {
     position: absolute;

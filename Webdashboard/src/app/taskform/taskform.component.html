@@ -1,33 +1,36 @@
-<form id="form-inside" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+<div class="modal-container">
+  <form class="modal-inside" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
 
-  <div class="modal-part">
-    <h2 style="color:black;">Task creation</h2> <h1>{{this.notify.observers.length}}</h1>
-  </div>
-  <div class="modal-part model-inputs">
-    <div class="form-group">
-      <input class="form-control" type="text" formControlName="name" placeholder="Task Name" required>
+    <div class="modal-part modal-header">
+      <h2 style="color:black;">Task creation</h2>
+      <h1>{{this.notify.observers.length}}</h1>
     </div>
-    <div class="form-group">
-      <input class="form-control" type="text" formControlName="description" placeholder="Description">
-    </div>
-    <!-- <div class="form-group">
+    <div class="modal-part model-inputs">
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="name" placeholder="Task Name" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="description" placeholder="Description">
+      </div>
+      <!-- <div class="form-group">
       <input class="form-control" type="date" formControlName="due_date" >
     </div> -->
-    <!-- <div class="form-group">
+      <!-- <div class="form-group">
       <input class="form-control" type="number" formControlName="category" placeholder="Category">
     </div>
     <div class="form-group">
       <input class="form-control" type="number" formControlName="priority" placeholder="Priority">
     </div> -->
-    <!-- <div class="form-group">
+      <!-- <div class="form-group">
       <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin">
     </div> -->
-    <div class="form-group">
-      <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
+      <div class="form-group">
+        <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
+      </div>
     </div>
-  </div>
-  <div class="modal-part">
-    <input [disabled]="!taskForm.valid" type="submit" value="Submit">
-    <button type="button" (click)="closeForm()">Cancel</button>
-  </div>
-</form>
+    <div class="modal-part">
+      <input [disabled]="!taskForm.valid" type="submit" value="Submit">
+      <button type="button" (click)="closeForm()">Cancel</button>
+    </div>
+  </form>
+</div>

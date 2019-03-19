@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalServiceService } from '../modal-service.service';
 
 @Component({
   selector: 'app-projectform',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectformComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService : ModalServiceService) { }
 
   ngOnInit() {
     console.log("Entered")
 
   }
 
+  closeForm() {
+    this.modalService.destroy()
+  }
+  
 }

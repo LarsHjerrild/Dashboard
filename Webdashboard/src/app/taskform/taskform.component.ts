@@ -37,7 +37,6 @@ export class TaskformComponent implements OnInit {
 
   ngOnInit() {
     this.taskForm.controls['due_date'].setValue(this.dateadd(5))
-
   }
   closeForm(){
     this.notify.emit()
