@@ -1,32 +1,30 @@
-<form [formGroup]="taskForm">
+<div class="modal-container">
+  <form class="modal-inside" [formGroup]="taskForm" (ngSubmit)="updateTask()">
 
-  <h3>Edit Task</h3>
-
-  <div class="modal-part model-inputs">
-
-    <input class="form-control" type="text" formControlName="name" placeholder="Task Name" required>
-
-    <input class="form-control" type="text" formControlName="description" placeholder="Description">
-
-    <!-- <input class="form-control" type="date" formControlName="due_date"> -->
-
-    <!-- <input class="form-control" type="number" formControlName="category" placeholder="Category"> -->
-
-    <!-- <input class="form-control" type="number" formControlName="priority" placeholder="Priority"> -->
-    <!-- <select class="form-control" formControlName=priority>
-      <option value="0">Low</option>
-      <option value="1"> Medium</option>
-      <option value="2">High</option>
-      <option value="3">Critical</option>
-    </select> -->
-
-    <!-- <input class="form-control" type="text" formControlName="goal_origin" placeholder="Goal origin"> -->
-
-    <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
+    <div class="modal-part modal-header">
+      <h3>Edit Task</h3>
+    </div>
 
 
-  </div>
-  <button type="button" (click)="updateTask()">Update Task</button>
-  <!-- <button type="button" (click)="deleteTask()">Delete Task</button> -->
-  <button type="button" (click)="closeForm()">close</button>
-</form>
+    <div class="modal-part model-inputs">
+
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="name" placeholder="Task Name" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" formControlName="description" placeholder="Description">
+
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" type="number" formControlName="estimated_time" placeholder="Time estimahe (hours)">
+      </div>
+
+    </div>
+    <div class="modal-part">
+      <button type="submit"> Update Task</button>
+
+      <button type="button" (click)="closeForm()">close</button>
+    </div>
+  </form>
+</div>

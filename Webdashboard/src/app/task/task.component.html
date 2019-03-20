@@ -23,19 +23,19 @@
   <hr style="width: 80%; margin-top: 0; margin-bottom: 0; height: 1px; border: none; border-top: 1px solid lightgray;">
   <div class="task-footer">
     <div class="task-inner-footer-verify">
-      <a (click)="OnVerify()" href="#">
+      <button style="border:none; background-color: inherit;" (click)="OnVerify()">
         <i class="material-icons" [style.color]= "task.status == 'completed' ? 'green' : 'gray'">
           check_circle_outline
         </i>
-      </a>
+      </button>
     </div>
     <div class="task-inner-footer">
-      <a (click)="onTaskClick()" href="#">
+      <a (click)="onTaskClick()">
         <i class="material-icons">
           edit
         </i>
       </a>
-      <a (click)="onTaskDelete()" href="#">
+      <a (click)="onTaskDelete()" >
         <i class="material-icons" id="task-delete">
           delete
         </i>

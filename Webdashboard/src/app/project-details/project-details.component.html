@@ -1,3 +1,5 @@
-<p>
-  project-details works!
-</p>
+<button (click)="newTask()">Click me</button>
+<div class="task-wrapper">
+  <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"
+    (verify)="verify($event)"></app-task>
+</div>

@@ -6,6 +6,7 @@ import { switchMap, first } from 'rxjs/operators';
 import { ModalServiceService } from '../modal-service.service';
 import { TaskformComponent } from '../taskform/taskform.component';
 import { TaskeditformComponent } from '../taskeditform/taskeditform.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task-window',
@@ -28,23 +29,7 @@ export class TaskWindowComponent implements OnInit {
     })
   }
   getAllTasks() {
-    // var obs1 = this.taskService.getAllTasks()
-    // obs1.pipe(switchMap((val) => {
-    //   return this.taskService.getAllTasks()
-    // })).subscribe(res => {
-    //   this.tasks = res.tasks
-    // });
-
-    // switchMap(res => this.taskService.getAllTasks())
-    // switchMap(res => this.taskService.getAllTasks().subscribe(res => {
-    //   console.log(res)
-    // }))
-    // this.taskService.getAllTasks().pipe(switchMap(res => this.taskService.getAllTasks())).subscribe(res => {
-    //   console.log(res)
-    // })
     this.taskService.getAllTasks().pipe().subscribe(res => {
-
-      //Change to task DTO
       this.tasks = res.tasks;
     });
   }
@@ -52,12 +37,11 @@ export class TaskWindowComponent implements OnInit {
     this.getAllTasks()
   }
   openTaskForm() {
+    console.log("Looking correctly")
+    let hep = this.modalService.init(TaskformComponent, {}, ["notify"])
 
-    let hep = this.modalService.init(TaskformComponent, {}, {})
+    hep["notify"].subscribe(e => {
 
-    hep.instance.notify.subscribe(e => {
-
-      console.log("Should get all")
       this.getAllTasks()
     })
   }
@@ -81,10 +65,17 @@ export class TaskWindowComponent implements OnInit {
   }
 
   update(e) {
+    console.log("Working")
     let inputs = {
       task: e
     }
-    this.modalService.init(TaskeditformComponent, inputs, {})
+
+    let hep = this.modalService.init(TaskeditformComponent, inputs,  ["notify"])
+
+    hep["notify"].subscribe(e => {
+
+      this.getAllTasks()
+    })
   }
 
   title = 'Atta | working smarter';

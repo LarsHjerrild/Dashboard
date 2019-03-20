@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Task} from '../task'
+import { Task } from '../task'
+import { TaskService } from '../task.service';
+import { ModalServiceService } from '../modal-service.service';
+import { TaskeditformComponent } from '../taskeditform/taskeditform.component';
 
 @Component({
   selector: 'app-task',
@@ -13,20 +16,29 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
 
 
-  constructor() { }
+  constructor(private taskService: TaskService, private modalService: ModalServiceService) { }
 
   ngOnInit() {
   }
 
-  onTaskClick(){
-    this.update.emit(this.task)
+  onTaskClick() {
+   
+   this.update.emit(this.task)
+    // let inputs = {
+    //   task: this.task
+    // }
+    // this.modalService.init(TaskeditformComponent, inputs, {})
   }
-  onTaskDelete(){
-    this.delete.emit(this.task)
+
+  onTaskDelete() {
+    this.taskService.deleteTask(this.task._id).pipe().subscribe(res => {
+    })
+    delete this.task
   }
 
   OnVerify() {
     this.task.status = 'completed'
-    this.verify.emit(this.task)
+    this.taskService.updateTask(this.task, this.task._id).subscribe(res => {
+    })
   }
 }

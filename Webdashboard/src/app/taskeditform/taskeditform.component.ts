@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter,  Output } from '@angular/core';
 import { ModalServiceService } from '../modal-service.service';
 import { Task, PRIORITIES } from '../task';
 import { TaskService } from '../task.service';
@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./taskeditform.component.scss']
 })
 export class TaskeditformComponent implements OnInit {
+  @Output() notify = new EventEmitter();
   @Input() task: Task;
 
   taskForm: FormGroup;

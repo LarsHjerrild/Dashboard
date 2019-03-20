@@ -13,6 +13,7 @@ import { TaskWindowComponent } from './task-window/task-window.component';
 import { StatpageComponent } from './statpage/statpage.component';
 import { ProjectformComponent } from './projectform/projectform.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectViewsComponent } from './project-views/project-views.component';
 
 /**
  * App routing
@@ -20,6 +21,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 const appRoutes: Routes = [
   { path: 'tasks', component: TaskWindowComponent },
   { path: 'projects', component: ProjectComponent },
+  { path: 'projects/:id', component: ProjectDetailsComponent },
   { path: 'stats', component: StatpageComponent },
   { path: '', redirectTo: '/tasks', pathMatch: 'full' }
 ]
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     TaskWindowComponent,
     StatpageComponent,
     ProjectformComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ProjectViewsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),

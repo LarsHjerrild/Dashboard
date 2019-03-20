@@ -68,41 +68,41 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
-  openTaskForm() {
+  // openTaskForm() {
 
-    let hep = this.modalService.init(TaskformComponent, {}, {})
+  //   let hep = this.modalService.init(TaskformComponent, {}, {})
 
-    hep.instance.notify.subscribe(e => {
+  //   hep.instance.notify.subscribe(e => {
 
-      console.log("Should get all")
-      this.getAllTasks()
-    })
-  }
+  //     console.log("Should get all")
+  //     this.getAllTasks()
+  //   })
+  // }
 
-  notify(e) {
-    console.log("WORKED!!!!")
-  }
+  // notify(e) {
+  //   console.log("WORKED!!!!")
+  // }
 
-  /**Maybe not so pretty but okay TODO evaluate if OK */
-  delete(e) {
-    this.taskService.deleteTask(e._id).pipe(first()).subscribe(res => {
-      this.getAllTasks()
-    })
-  }
+  // /**Maybe not so pretty but okay TODO evaluate if OK */
+  // delete(e) {
+  //   this.taskService.deleteTask(e._id).pipe(first()).subscribe(res => {
+  //     this.getAllTasks()
+  //   })
+  // }
 
-  verify(e) {
-    console.log(e)
-    this.taskService.updateTask(e, e._id).pipe(first()).subscribe(res => {
-      this.getAllTasks()
-    })
-  }
+  // verify(e) {
+  //   console.log(e)
+  //   this.taskService.updateTask(e, e._id).pipe(first()).subscribe(res => {
+  //     this.getAllTasks()
+  //   })
+  // }
 
-  update(e) {
-    let inputs = {
-      task: e
-    }
-    this.modalService.init(TaskeditformComponent, inputs, {})
-  }
+  // update(e) {
+  //   let inputs = {
+  //     task: e
+  //   }
+  //   this.modalService.init(TaskeditformComponent, inputs, {})
+  // }
 
-  title = 'Atta | working smarter';
+  // title = 'Atta | working smarter';
 }

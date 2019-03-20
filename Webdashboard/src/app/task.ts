@@ -18,10 +18,17 @@ export enum CATEGORIES {
     FUN
 }
 
+
+export class Project {
+    _id?: string;
+    name: string;
+    description: string;
+}
 export class Task {
     _id?: string
     name: string;
     status?: string;
+    project?: Project;
     description: string;
     creation_date?: Date;
     due_date: Date;
@@ -31,7 +38,7 @@ export class Task {
     estimated_time: number;
 }
 
-export const TASKS :Task[] = [
+export const TASKS: Task[] = [
     {
         name: "Set up Build",
         description: "work",

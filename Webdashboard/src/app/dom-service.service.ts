@@ -31,10 +31,6 @@ export class DomServiceService {
 
     this.childComponentRef = childComponentRef;
 
-    console.log(this.childComponentRef)
-
-    //console.log(childComponentRef.instance.notify.subscribe(event => console.log("he")))
-
     // Attach component to the appRef so that it's inside the ng component tree
     this.appRef.attachView(childComponentRef.hostView);
 
@@ -56,15 +52,11 @@ export class DomServiceService {
 
 
   private attachConfig(config, componentRef) {
-    let inputs = config.inputs;
-    let outputs = config.outputs;
+    const inputs = config.inputs;
+    const outputs = config.outputs;
     for (var key in inputs) {
       componentRef.instance[key] = inputs[key];
     }
-    for (var key in outputs) {
-      componentRef.instance[key] = outputs[key];
-    }
-
   }
 }
 interface childConfig {
