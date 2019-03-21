@@ -72,6 +72,10 @@
   color: $primary-light;
   display: flex;
   justify-content: space-between;
+
+  button {
+    border:none; background-color: inherit;
+  }
 }
 //TODO fix imperfect showing of estimated time
 .task-main-description {
@@ -79,7 +83,14 @@
   overflow: hidden;
 }
 .task-inner-footer {
-  display: flex
+  display: flex;
+  button {
+    border:none; background-color: inherit;
+    padding: 0px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
 }
 
 .task-footer p {
@@ -107,3 +118,6 @@ a, a:visited, a:hover, a:active {
   color: gray;
 }
 
+#edit {
+  color: $primary;
+}

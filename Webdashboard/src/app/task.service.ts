@@ -28,7 +28,9 @@ export class TaskService {
   }
 
   updateTask(task :Task, id: string): Observable<Task> {
+    
     let url: string = rooturl + module + '/'+ id
+    console.log(url)
     return this.http.put<Task>(url,task)
   }
 

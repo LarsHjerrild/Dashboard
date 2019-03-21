@@ -36,6 +36,7 @@ export class Task {
     priority: PRIORITIES;
     goal_origin: string;
     estimated_time: number;
+    completed_time?: number;
 }
 
 export const TASKS: Task[] = [

@@ -1,4 +1,4 @@
-<button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
+<!-- <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button> -->
 <input [formControl]="searchfield" type="text" placeholder="Search...">
 <div class="task-wrapper">
   <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"

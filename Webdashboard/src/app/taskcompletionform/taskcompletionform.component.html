@@ -1,0 +1,17 @@
+<div class="modal-container">
+  <form class="modal-inside" [formGroup]="taskCompletionForm" (ngSubmit)="onSubmit()">
+
+    <div class="modal-part modal-header">
+      <h2 style="color:black;">Task completion</h2>
+    </div>
+    <div class="modal-part model-inputs">
+      <div class="form-group">
+        <input class="form-control" type="number" formControlName="completed_time" required>
+      </div>
+    </div>
+    <div class="modal-part">
+      <input type="submit" value="Submit">
+      <button type="button" (click)="closeForm()">Cancel</button>
+    </div>
+  </form>
+</div>

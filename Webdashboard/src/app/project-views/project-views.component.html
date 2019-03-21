@@ -1,3 +1,8 @@
-<div>
-  <a (click)="openProject()" routerLink="/projects/{{project._id}}">{{project.name}}</a>
+
+ <a (click)="openProject()" routerLink="/projects/{{project._id}}">
+<div class="project-wrapper">
+  <div class="project-header">
+   <h2>{{project.name}}</h2>
+  </div>
 </div>
+</a>

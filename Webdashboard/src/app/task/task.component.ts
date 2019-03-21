@@ -3,6 +3,7 @@ import { Task } from '../task'
 import { TaskService } from '../task.service';
 import { ModalServiceService } from '../modal-service.service';
 import { TaskeditformComponent } from '../taskeditform/taskeditform.component';
+import { TaskcompletionformComponent } from '../taskcompletionform/taskcompletionform.component';
 
 @Component({
   selector: 'app-task',
@@ -22,8 +23,8 @@ export class TaskComponent implements OnInit {
   }
 
   onTaskClick() {
-   
-   this.update.emit(this.task)
+
+    this.update.emit(this.task)
     // let inputs = {
     //   task: this.task
     // }
@@ -33,12 +34,17 @@ export class TaskComponent implements OnInit {
   onTaskDelete() {
     this.taskService.deleteTask(this.task._id).pipe().subscribe(res => {
     })
-    delete this.task
+    this.delete.emit(this.task)
   }
 
   OnVerify() {
-    this.task.status = 'completed'
-    this.taskService.updateTask(this.task, this.task._id).subscribe(res => {
+    let hep = this.modalService.init(TaskcompletionformComponent, { task: this.task }, ["notify"])
+    
+    hep["notify"].subscribe(res => {
+      
+      this.task.status = 'completed'
+      this.taskService.updateTask(this.task, this.task._id).subscribe(res => {
+      })
     })
   }
 }

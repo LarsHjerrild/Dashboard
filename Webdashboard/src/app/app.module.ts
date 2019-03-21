@@ -14,6 +14,7 @@ import { StatpageComponent } from './statpage/statpage.component';
 import { ProjectformComponent } from './projectform/projectform.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectViewsComponent } from './project-views/project-views.component';
+import { TaskcompletionformComponent } from './taskcompletionform/taskcompletionform.component';
 
 /**
  * App routing
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     StatpageComponent,
     ProjectformComponent,
     ProjectDetailsComponent,
-    ProjectViewsComponent
+    ProjectViewsComponent,
+    TaskcompletionformComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
   entryComponents: [
     TaskeditformComponent,
     TaskformComponent,
-    ProjectformComponent
+    ProjectformComponent,
+    TaskcompletionformComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

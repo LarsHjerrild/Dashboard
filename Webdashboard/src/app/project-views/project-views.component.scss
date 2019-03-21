@@ -1,0 +1,26 @@
+@import "../../sass/variables.scss";
+
+.project-wrapper {
+  height: 360px;
+  width: 400px;
+  background-color: aliceblue;
+
+  margin: 1em;
+  -webkit-box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+  -moz-box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+  box-shadow: 10px 10px 24px -5px rgba(51, 51, 51, 1);
+}
+.project-header {
+  background-color: $primary;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0%;
+  display: flex;
+  justify-content: space-between;
+  color: black
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+  }

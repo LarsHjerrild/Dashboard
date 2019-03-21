@@ -41,7 +41,6 @@ export class TaskformComponent implements OnInit {
   }
   closeForm() {
     this.notify.emit()
-    console.log("closed")
     this.modalService.destroy()
   }
 
@@ -58,7 +57,8 @@ export class TaskformComponent implements OnInit {
     tmp.estimated_time = this.taskForm.value.estimated_time
 
     this.taskService.addTask(tmp).subscribe((data) => {
-      this.notify.emit()
+      tmp._id = data._id
+      this.notify.emit(tmp)
       this.modalService.destroy()
     });
 
