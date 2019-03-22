@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .modal-container {
   padding-top: 100px; /* Location of the box */
   position: absolute;
@@ -6,7 +8,14 @@
   width: 100%; /* Full width */
   height: 100%;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: example;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards; 
+
+  @keyframes example {
+    from {background-color: none;}
+    to {background-color: rgba(0, 0, 0, 0.4);}
+  }
 }
 
 .modal-inside {
@@ -20,6 +29,19 @@
   grid-template-rows: 1fr 4fr 1.5fr;
   grid-row-gap: 5px;
   box-shadow: 4px 4px 2px #aaaaaa;
+
+
+  opacity: 0;
+  animation-delay: 0.2s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards; 
+  animation-name: myani;
+
+  @keyframes myani {
+    from {opacity: 0; }
+    to { opacity: 100; }
+  }
+
 }
 
 .modal-header {
@@ -57,4 +79,29 @@
 }
 .form-group label {
     margin-right: 5%;
+}
+
+
+input[type=text] {
+ 
+  -webkit-transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+}
+
+input[type=text]:focus {
+
+    outline: none;
+    box-shadow: 0px 3px 0px 0px #4EA6EA, 0px 3px 0px 0px #4EA6EA;
+   
+
+  // border-bottom: solid 2px $primary;
+  // animation-duration: 0.5s;
+  // animation-fill-mode: forwards;
+  // animation-name: textanimation;
+
+
+  // @keyframes textanimation {
+  //   from {border-bottom-width: 0%}
+  //   to {border-bottom-width: 100%} 
+  // }
 }

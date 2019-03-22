@@ -40,7 +40,6 @@ export class TaskformComponent implements OnInit {
     this.taskForm.controls['due_date'].setValue(this.dateadd(5))
   }
   closeForm() {
-    this.notify.emit()
     this.modalService.destroy()
   }
 

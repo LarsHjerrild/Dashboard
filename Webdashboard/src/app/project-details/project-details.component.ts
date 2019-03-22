@@ -75,6 +75,8 @@ export class ProjectDetailsComponent implements OnInit {
 
     //Get event from modal
     input["notify"].subscribe(res => {
+      const hep = Date.now()
+      res.created_date = hep;
       this.tasks.push(res)
     })
   }
