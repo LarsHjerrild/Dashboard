@@ -18,13 +18,11 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.projectService.getAllProjects().subscribe(data => {
       this.projects = data.projects
-      console.log(data.projects)
     })
   }
   openProjectForm() {
    this.modalService.init(ProjectformComponent, {}, [])
   }
   openPrj(id :any){
-    console.log(id)
   }
 }

@@ -1,6 +1,22 @@
-<button (click)="newTask()">Click me</button>
+<!-- <button (click)="newTask()">Click me</button>
 <input type="checkbox" [formControl]="cb" name="cb"> <label for="cb" style="color:black"> Show completed tasks</label>
 <div class="task-wrapper">
   <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"
     (verify)="verify($event)"></app-task>
 </div>
+
+<nav>
+  <a [routerLink]="['dashboard']">Dashboard</a>
+  <a [routerLink]="['goals']">Goals</a>
+</nav> -->
+
+<nav style="margin-bottom: 20px;">
+  <ul>
+    <li><a [routerLink]="['tasks']">Tasks</a></li>
+    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+    <li><a [routerLink]="['goals']">Goals</a></li>
+  </ul>
+</nav>
+<hr>
+
+<router-outlet></router-outlet>

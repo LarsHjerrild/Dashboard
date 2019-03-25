@@ -15,6 +15,9 @@ import { ProjectformComponent } from './projectform/projectform.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectViewsComponent } from './project-views/project-views.component';
 import { TaskcompletionformComponent } from './taskcompletionform/taskcompletionform.component';
+import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
+import { ProjectGoalsComponent } from './project-goals/project-goals.component';
+import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
 
 /**
  * App routing
@@ -22,7 +25,21 @@ import { TaskcompletionformComponent } from './taskcompletionform/taskcompletion
 const appRoutes: Routes = [
   { path: 'tasks', component: TaskWindowComponent },
   { path: 'projects', component: ProjectComponent },
-  { path: 'projects/:id', component: ProjectDetailsComponent },
+  {
+    path: 'projects/:id',
+    component: ProjectDetailsComponent,
+    children: [
+      {
+        path: '',
+        children: [
+          { path: 'tasks', component: ProjectTasksComponent},
+          { path: 'dashboard', component: ProjectDashboardComponent },
+          { path: 'goals', component: ProjectGoalsComponent },
+          { path: '', component: ProjectTasksComponent },
+        ]
+      }
+    ]
+  },
   { path: 'stats', component: StatpageComponent },
   { path: '', redirectTo: '/tasks', pathMatch: 'full' }
 ]
@@ -39,7 +56,10 @@ const appRoutes: Routes = [
     ProjectformComponent,
     ProjectDetailsComponent,
     ProjectViewsComponent,
-    TaskcompletionformComponent
+    TaskcompletionformComponent,
+    ProjectDashboardComponent,
+    ProjectGoalsComponent,
+    ProjectTasksComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),

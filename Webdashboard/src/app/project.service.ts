@@ -31,4 +31,11 @@ export class ProjectService {
   getAllProjectTasks(id: string): Observable<any> {
     return this.http.get(rooturl + module + '/' + id +'/task')
   }
+
+  getProjectStats(id: string):  Observable<any> {
+    const url = rooturl + module + '/' + id +'/stats' 
+    console.log(url)
+    return this.http.get(url)
+  }
+
 }

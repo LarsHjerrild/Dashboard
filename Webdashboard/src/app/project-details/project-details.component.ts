@@ -27,65 +27,65 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnInit() {
 
 
-    this.route.paramMap.pipe(switchMap(res => { return this.service.getAllProjectTasks(res.get("id")) })).subscribe(res => {
-      this.tasks = res.tasks
-      this.alltasks = this.tasks
-      this.filterfunc(false)
-    })
+    // this.route.paramMap.pipe(switchMap(res => { return this.service.getAllProjectTasks(res.get("id")) })).subscribe(res => {
+    //   this.tasks = res.tasks
+    //   this.alltasks = this.tasks
+    //   this.filterfunc(false)
+    // })
 
-    this.route.paramMap.pipe(
-      switchMap(res => {
-        return this.service.getProject(res.get("id"))
-      })).subscribe(res => {
-        console.log(res)
-        this.project = res
-      })
+    // this.route.paramMap.pipe(
+    //   switchMap(res => {
+    //     return this.service.getProject(res.get("id"))
+    //   })).subscribe(res => {
+    //     console.log(res)
+    //     this.project = res
+    //   })
 
-    this.cb.valueChanges.subscribe(res => {
-      this.filterfunc(res)
-    })
+    // this.cb.valueChanges.subscribe(res => {
+    //   this.filterfunc(res)
+    // })
 
   }
-  filterfunc(res){
-    if (!res) {
-      const hep = this.tasks.filter((task) => {
-        if (task.status !== 'completed') {
-          return task;
-        }
-      })
-      this.tasks = hep
-    }
-    else {
-      this.tasks = this.alltasks
-    }
-  }
+  // filterfunc(res){
+  //   if (!res) {
+  //     const hep = this.tasks.filter((task) => {
+  //       if (task.status !== 'completed') {
+  //         return task;
+  //       }
+  //     })
+  //     this.tasks = hep
+  //   }
+  //   else {
+  //     this.tasks = this.alltasks
+  //   }
+  // }
 
-  delete($event) {
-    const tmp = this.tasks.indexOf($event)
-    if (tmp > -1) {
-      this.tasks.splice(tmp, 1);
-    }
-  }
+  // delete($event) {
+  //   const tmp = this.tasks.indexOf($event)
+  //   if (tmp > -1) {
+  //     this.tasks.splice(tmp, 1);
+  //   }
+  // }
 
-  newTask() {
+  // newTask() {
 
-    let tmp = new Task()
-    tmp.project = this.project
-    let input = this.modalService.init(TaskformComponent, { task: tmp }, ["notify"])
+  //   let tmp = new Task()
+  //   tmp.project = this.project
+  //   let input = this.modalService.init(TaskformComponent, { task: tmp }, ["notify"])
 
-    //Get event from modal
-    input["notify"].subscribe(res => {
-      const hep = Date.now()
-      res.created_date = hep;
-      this.tasks.push(res)
-    })
-  }
+  //   //Get event from modal
+  //   input["notify"].subscribe(res => {
+  //     const hep = Date.now()
+  //     res.created_date = hep;
+  //     this.tasks.push(res)
+  //   })
+  // }
 
-  update(e) {
-    let inputs = {
-      task: e
-    }
-    this.modalService.init(TaskeditformComponent, inputs, ["notify"])
-  }
+  // update(e) {
+  //   let inputs = {
+  //     task: e
+  //   }
+  //   this.modalService.init(TaskeditformComponent, inputs, ["notify"])
+  // }
 
 }
