@@ -251,6 +251,12 @@ background-color: lightgrey;
     background:  rgba(0,0,0,0.8);
 }
 
+
+#searchfield {
+  max-width: 300px;
+}
+
+
 @media(max-width: $screen-breakpoint-mobile)
 {
   .grid-container {

@@ -7,55 +7,11 @@
     grid-column-gap: 1em;
     height: 100%;
   }
-  
-  .sidebar {
-    background-color: $primary-dark;
-    padding: 1em;
-    text-align: left;
-    margin: 0;
-    font-weight: 200;
-  }
-  
-  .sidebar {
-    background-color: $primary-dark;
-    padding: 1em;
-    text-align: left;
-    margin: 0;
-    font-weight: 200;
-  }
-  
-  .sidebar ul {
-    margin: 0%;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    font-size: 14pt;
-  }
-  .sidebar hr {
-    size: 1px;
-  }
-  
-  
-  .profile-picture {
-    height: 50px;
-    text-align: left;
-    margin-bottom: 2em;
-    
-  }
-  .profile-picture img {
-    height: 100%;
-    width:auto;
-    border-radius: 50%;
-  }
-  
  
   
   
   .main-window {
-    // background-color: white;
-    //   padding: 2em;
-    padding-top: 1em;
+    padding-top: 0;
   }
   
   .task-wrapper {

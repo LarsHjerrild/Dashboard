@@ -1,5 +1,6 @@
-<button (click)="newTask()">Click me</button>
+<button (click)="newTask()">Create Task</button>
 <input type="checkbox" [formControl]="cb" name="cb"> <label for="cb" style="color:black"> Show completed tasks</label>
+<!-- <input id="searchfield" [formControl]="searchfield" type="text" placeholder="Search..."> -->
 <div class="task-wrapper">
   <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)"
     (verify)="verify($event)"></app-task>

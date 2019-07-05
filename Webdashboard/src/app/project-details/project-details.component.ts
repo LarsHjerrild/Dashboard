@@ -33,13 +33,12 @@ export class ProjectDetailsComponent implements OnInit {
     //   this.filterfunc(false)
     // })
 
-    // this.route.paramMap.pipe(
-    //   switchMap(res => {
-    //     return this.service.getProject(res.get("id"))
-    //   })).subscribe(res => {
-    //     console.log(res)
-    //     this.project = res
-    //   })
+    this.route.paramMap.pipe(
+      switchMap(res => {
+        return this.service.getProject(res.get("id"))
+      })).subscribe(res => {
+        this.project = res
+      })
 
     // this.cb.valueChanges.subscribe(res => {
     //   this.filterfunc(res)

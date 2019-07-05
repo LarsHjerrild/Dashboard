@@ -15,6 +15,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ProjectTasksComponent implements OnInit {
   cb: FormControl = new FormControl(false);
+  searchfield: FormControl = new FormControl('');
   project: Project;
   tasks: Task[];
   alltasks: Task[];
@@ -25,68 +26,74 @@ export class ProjectTasksComponent implements OnInit {
     private service: ProjectService,
     private modalService: ModalServiceService) { }
 
-    ngOnInit() {
+  ngOnInit() {
 
+    // this.searchfield.valueChanges.pipe(switchMap(res => {
+    //   return this.route.paramMap.pipe(switchMap(res => { return this.service.getAllProjectTasks(res.get("id")) }))
+    // })).subscribe(res => {
+    //   this.tasks = res.tasks
+    //   this.filterfunc(this.cb.value)
+    // })
 
-      this.route.paramMap.pipe(switchMap(res => { return this.service.getAllProjectTasks(res.get("id")) })).subscribe(res => {
-        this.tasks = res.tasks
-        this.alltasks = this.tasks
-        this.filterfunc(false)
+    this.route.paramMap.pipe(switchMap(res => { return this.service.getAllProjectTasks(res.get("id")) })).subscribe(res => {
+      this.tasks = res.tasks
+      this.alltasks = this.tasks
+      this.filterfunc(false)
+    })
+
+    this.route.paramMap.pipe(
+      switchMap(res => {
+        return this.service.getProject(res.get("id"))
+      })).subscribe(res => {
+        console.log(res)
+        this.project = res
       })
-  
-      this.route.paramMap.pipe(
-        switchMap(res => {
-          return this.service.getProject(res.get("id"))
-        })).subscribe(res => {
-          console.log(res)
-          this.project = res
-        })
-  
-      this.cb.valueChanges.subscribe(res => {
-        this.filterfunc(res)
+
+    this.cb.valueChanges.subscribe(res => {
+      this.filterfunc(res)
+    })
+
+  }
+  filterfunc(res) {
+    if (!res) {
+      const hep = this.tasks.filter((task) => {
+        if (task.status !== 'completed') {
+          return task;
+        }
       })
-  
+      this.tasks = hep
     }
-    filterfunc(res){
-      if (!res) {
-        const hep = this.tasks.filter((task) => {
-          if (task.status !== 'completed') {
-            return task;
-          }
-        })
-        this.tasks = hep
-      }
-      else {
-        this.tasks = this.alltasks
-      }
+    else {
+      this.tasks = this.alltasks
     }
-  
-    delete($event) {
-      const tmp = this.tasks.indexOf($event)
-      if (tmp > -1) {
-        this.tasks.splice(tmp, 1);
-      }
+  }
+
+  delete($event) {
+    const tmp = this.tasks.indexOf($event)
+    if (tmp > -1) {
+      this.tasks.splice(tmp, 1);
     }
-  
-    newTask() {
-  
-      let tmp = new Task()
-      tmp.project = this.project
-      let input = this.modalService.init(TaskformComponent, { task: tmp }, ["notify"])
-  
-      //Get event from modal
-      input["notify"].subscribe(res => {
-        const hep = Date.now()
-        res.created_date = hep;
-        this.tasks.push(res)
-      })
+  }
+
+  newTask() {
+
+    let tmp = new Task()
+    tmp.project = this.project
+    let input = this.modalService.init(TaskformComponent, { task: tmp }, ["notify"])
+
+    //Get event from modal
+    input["notify"].subscribe(res => {
+      const hep = Date.now()
+      res.created_date = hep;
+      this.tasks.push(res)
+    })
+  }
+
+  update(e) {
+    let inputs = {
+      task: e
     }
-  
-    update(e) {
-      let inputs = {
-        task: e
-      }
-      this.modalService.init(TaskeditformComponent, inputs, ["notify"])
-    }
+    this.modalService.init(TaskeditformComponent, inputs, ["notify"])
+  }
 
 }

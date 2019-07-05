@@ -18,6 +18,7 @@ import { TaskcompletionformComponent } from './taskcompletionform/taskcompletion
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { ProjectGoalsComponent } from './project-goals/project-goals.component';
 import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 /**
  * App routing
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     TaskcompletionformComponent,
     ProjectDashboardComponent,
     ProjectGoalsComponent,
-    ProjectTasksComponent
+    ProjectTasksComponent,
+    SidebarComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: false }),

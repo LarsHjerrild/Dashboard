@@ -10,10 +10,11 @@ import { Project } from '../task';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
-  projects :Project[]
-
-  constructor(private projectService: ProjectService,private modalService: ModalServiceService) { }
   
+  projects: Project[]
+
+  constructor(private projectService: ProjectService, private modalService: ModalServiceService) { }
+
 
   ngOnInit() {
     this.projectService.getAllProjects().subscribe(data => {
@@ -21,8 +22,10 @@ export class ProjectComponent implements OnInit {
     })
   }
   openProjectForm() {
-   this.modalService.init(ProjectformComponent, {}, [])
-  }
-  openPrj(id :any){
+    const tmp = this.modalService.init(ProjectformComponent, {}, ["notify"])
+
+    tmp["notify"].subscribe(res => {
+      this.projects.push(res)
+    })
   }
 }

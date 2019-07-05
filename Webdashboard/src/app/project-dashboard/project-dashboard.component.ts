@@ -70,15 +70,24 @@ export class ProjectDashboardComponent implements OnInit {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
           {
+            backgroundColor: '#3cba9f',
+            label: 'Points completed',
             data: [0, 10, 5, 2, 20, 30, 45],
             borderColor: '#3cba9f',
+            fill: false
+          },
+          {
+            label: 'tasks completed',
+            data: [0, 3, 40, 20, 18, 15, 30],
+            borderColor: '#aabaaa',
+            backgroundColor: '#aabaaa',
             fill: false
           }
         ]
       },
       options: {
         legend: {
-          display: false
+          display: true
         },
         scales: {
           xAxes: [{

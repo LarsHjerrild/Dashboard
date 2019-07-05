@@ -1,4 +1,8 @@
 .task-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#searchfield {
+  max-width: 1500px;
+}

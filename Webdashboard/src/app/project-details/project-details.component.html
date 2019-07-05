@@ -10,11 +10,13 @@
   <a [routerLink]="['goals']">Goals</a>
 </nav> -->
 
-<nav style="margin-bottom: 20px;">
+<h2 *ngIf="project">{{project.name}}</h2>
+
+<nav class="project-detail-nav">
   <ul>
-    <li><a [routerLink]="['tasks']">Tasks</a></li>
-    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
-    <li><a [routerLink]="['goals']">Goals</a></li>
+    <li><a [routerLink]="['tasks']" routerLinkActive="project-active-link">Tasks</a></li>
+    <li><a [routerLink]="['dashboard']" routerLinkActive="project-active-link">Dashboard</a></li>
+    <!-- <li><a [routerLink]="['goals']">Goals</a></li> -->
   </ul>
 </nav>
 <hr>

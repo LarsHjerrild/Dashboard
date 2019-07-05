@@ -1,0 +1,61 @@
+@import "../../sass/variables";
+
+.sidebar {
+  height: 100%;
+  background-color: $primary-dark;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-weight: 200;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  margin: 0%;
+  padding: 0;
+}
+
+.sidebar ul li {
+  background-color: $primary;
+  font-size: 14pt;
+  height: 50px;
+  margin-top: 2px;
+}
+.sidebar ul li:first-child {
+  margin-top: 0px;
+}
+
+.sidebar ul li a {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-active-link {
+  background-color: $primary-dark;
+  outline: 1px solid white;
+  border-left: 4px solid $primary-light;
+}
+
+.list-item {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.sidebar-text {
+  padding-top: 0.7em;
+  margin-left: 0.8em;
+}
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-icons {
+  font-size: 36px;
+}

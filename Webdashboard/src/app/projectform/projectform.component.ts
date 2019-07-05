@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModalServiceService } from '../modal-service.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ProjectService } from '../project.service';
@@ -9,10 +9,10 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./projectform.component.scss']
 })
 export class ProjectformComponent implements OnInit {
-
+  @Output() notify = new EventEmitter();
   projectForm: FormGroup;
 
-  constructor(fb: FormBuilder, private projectService: ProjectService,private modalService : ModalServiceService) { 
+  constructor(fb: FormBuilder, private projectService: ProjectService, private modalService: ModalServiceService) {
     this.projectForm = fb.group({
       name: '',
       description: ''
@@ -26,13 +26,15 @@ export class ProjectformComponent implements OnInit {
     this.modalService.destroy()
   }
   onSubmit() {
-    const tmp = {
+    let tmp = {
+      _id: undefined,
       name: this.projectForm.value.name,
       descrition: this.projectForm.value.description
     }
 
     this.projectService.addProject(tmp).subscribe((data) => {
-      console.warn(data)
+      tmp._id = data.id
+      this.notify.emit(tmp)
       this.modalService.destroy()
     })
   }

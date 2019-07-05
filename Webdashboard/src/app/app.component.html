@@ -4,38 +4,24 @@
   <!-- <button type="button" (click)="openTaskForm()">Create new task</button> -->
   <!-- <button type="button" (click)="openModal()">Oen modal</button> 
     <button type="button" (click)="openModalf()">Cool btn</button> -->
-  <div class="sidebar">
-    <div class="profile">
-      <div class="profile-picture">
-        <!-- <img src="../assets/prof.png"> -->
-        <!-- <i class="material-icons" style="font-size: 96px;">
-          account_circle
-        </i> -->
-      </div>
-      <h2>Lars</h2>
-    </div>
-    <hr style="margin-bottom:4px; border-color: white;">
-    <nav class="sidebar-navigation">
-      <ul class="sidebar-points">
-        <li><a routerLink="tasks" routerLinkActive="active">Tasks </a></li>
-        <li><a routerLink="projects" routerLinkActive="active">Projects</a></li>
-        <li><a routerLink="stats" routerLinkActive="active">Stats</a></li>
-      </ul>
-    </nav>
-  </div>
-  
-  
+
+  <app-sidebar style="padding: 0; margin:0;">
+
+  </app-sidebar>
+
+
+
   <div class="main-window">
-    
-    
+
+
     <router-outlet></router-outlet>
     <!-- <button (click)="openTaskForm()" style="margin-left: 16px;">Create Task</button>
     <input [formControl]="searchfield" type="text" placeholder="Search...">
     <div class="task-wrapper">
         <app-task *ngFor="let task of tasks" [task]="task" (update)="update($event)" (delete)="delete($event)" (verify)="verify($event)"></app-task>
     </div> -->
-  
-  
+
+
   </div>
 
 
